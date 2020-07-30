@@ -1,0 +1,24 @@
+Marker; Cy3/Cy5 pre-labeled Albumin
+glutamate receptor interacting protein 1
+lysosomal-associated membrane protein 1
+CrmA
+linker for activation of T cells
+protein phosphatase 5 catalytic subunit
+interleukin 12B (natural killer cell stimulatory factor 2 cytotoxic lymphocyte maturation factor 2 p40)
+sorting nexin 1
+RAS p21 protein activator (GTPase activating protein) 1
+calnexin
+reversion-inducing-cysteine-rich protein with kazal motifs
+a disintegrin and metalloproteinase domain 9 (meltrin gamma)
+ribosomal protein S6 kinase 90kDa polypeptide 1
+caveolin 2
+CD3Z antigen zeta polypeptide (TiT3 complex)
+eukaryotic translation initiation factor 4 gamma 1
+hematopoietic cell-specific Lyn substrate 1
+docking protein 1 62kDa (downstream of tyrosine kinase 1)
+kinesin family member 11
+RAP1 GTPase activating protein 1
+early endosome antigen 1 162kD
+translin-associated factor X
+TIA1 cytotoxic granule-associated RNA binding protein-like 1
+bkg control; Albumin, unlabeled
