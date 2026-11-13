@@ -7,13 +7,14 @@ public class DataHandler {
 	// header used to store header labels for columns in data file
 	// id is the list of labels associated with row names
 	private String[] header, id;  
-	//patients is the column count
+	//patients is the measurement-column count (two mix columns per patient)
 	//biomarkers is the row count
-	int patients =0,biomarkers=0;
+	int patientCount = 0, patients = 0, biomarkers = 0;
 	
 	//Constructor requires row and column count be entered
 	public DataHandler(int p, int b){
-		patients = p;
+		patientCount = p;
+		patients = p * 2;
 		//Assumes header line is included in row count
 		biomarkers=b-1;
 	}
@@ -21,134 +22,111 @@ public class DataHandler {
 	//stores in in the double[][] data
 	public void readCSVSheet(String fileName)
 	{
-		//create data and header objects to store data from file
-		data = new double[biomarkers][patients];
-		header = new String[patients];
-		//double loop to initialize all values in data to -1
-		for(int a=0; a<patients; a++)
-		{
-			for(int b=0; b<biomarkers; b++)
-			{
-				data[b][a]=-1;
-				
-			}
-			header[a]=null;
-		}
-		//OPEN file here...
-		try{
-			//try to read in file passed in from param
-			Scanner file = new Scanner(new FileReader(fileName));
-			String tmp;
-			int length, position=0;
-			String[] row;
-		
-			//remove header line of csv file
-			tmp = file.nextLine();
-			header = tmp.split(",");
-			
-			//read in csv file and save in data[][]
-			while(file.hasNext())
-			{
-				tmp = file.nextLine();
-				row = tmp.split(",");
-				length=row.length;
-				for(int x=0; x<length; x++)
-				{
-					//Handle
-					if(row[x].matches("NA"))
-					{
-						data[position][x]=-2;
-					}
-					else
-					{
-						double temp=Double.parseDouble(row[x]);
-						data[position][x] = temp;
-					}
-				}	
-				position++;
-			}
-		}
-		catch(Exception e){
-			//File not found exception
-			System.out.println("File not found");
-			System.out.println(e.getLocalizedMessage());
-		}
+		readDelimitedSheet(fileName, true);
 	}
 	
 	public void readDATSheets(String name)
 	{
-		//create data and header objects to store data from file
+		readDelimitedSheet(name, false);
+	}
+
+	private void readDelimitedSheet(String fileName, boolean hasHeader)
+	{
+		List<String> lines = new ArrayList<String>();
+		try {
+			Scanner file = new Scanner(new FileReader(fileName));
+			try {
+				while (file.hasNextLine()) {
+					String line = file.nextLine();
+					if (!line.trim().isEmpty()) {
+						lines.add(line);
+					}
+				}
+			} finally {
+				file.close();
+			}
+		} catch (IOException e) {
+			throw new IllegalArgumentException("Could not read data file: " + fileName, e);
+		}
+
+		if (lines.size() <= (hasHeader ? 1 : 0)) {
+			throw new IllegalArgumentException("Data file is empty: " + fileName);
+		}
+
+		String delimiter = detectDelimiter(lines.get(0), !hasHeader);
+		int firstDataRow = hasHeader ? 1 : 0;
+		String[] firstRow = split(lines.get(firstDataRow), delimiter);
+		int columnCount = firstRow.length;
+		if (hasHeader && patientCount > 0 && columnCount != patientCount * 2) {
+			throw new IllegalArgumentException("Data has " + columnCount
+					+ " measurement columns, but " + patientCount
+					+ " patients require " + (patientCount * 2) + " columns (two mixes each): "
+					+ fileName);
+		}
+		patients = columnCount;
+		patientCount = patients / 2;
+		biomarkers = lines.size() - firstDataRow;
 		data = new double[biomarkers][patients];
-		//double loop to initialize all values in data to -1
-		for(int a=0; a<patients; a++)
-		{
-			for(int b=0; b<biomarkers; b++)
-			{
-				data[b][a]=-1;
+
+		if (hasHeader) {
+			header = split(lines.get(0), delimiter);
+			if (header.length != patients) {
+				throw new IllegalArgumentException("Header has " + header.length
+						+ " columns but the data has " + patients + " in " + fileName);
 			}
-			header[a]=null;
+		} else if (header == null || header.length != patients) {
+			header = new String[patients];
 		}
-		//OPEN file here...
-		try{
-			//try to read in file passed in from param
-			Scanner file = new Scanner(new FileReader(name));
-			String tmp;
-			int length, position=0;
-			String[] row;
-			
-			//read in csv file and save in data[][]
-			while(file.hasNext())
-			{
-				tmp = file.nextLine();
-				row = tmp.split("\t");
-				length=row.length;
-				for(int x=0; x<length; x++)
-				{
-					//Handle
-					if(row[x].matches("NA"))
-					{
-						data[position][x]=-2;
+
+		for (int rowIndex = 0; rowIndex < biomarkers; rowIndex++) {
+			String[] row = split(lines.get(firstDataRow + rowIndex), delimiter);
+			if (row.length != patients) {
+				throw new IllegalArgumentException("Row " + (firstDataRow + rowIndex + 1)
+						+ " has " + row.length + " columns; expected " + patients
+						+ " in " + fileName);
+			}
+			for (int column = 0; column < patients; column++) {
+				String value = deleteQuotes(row[column]).trim();
+				if (value.isEmpty() || value.equalsIgnoreCase("NA")) {
+					data[rowIndex][column] = -2;
+				} else {
+					try {
+						data[rowIndex][column] = Double.parseDouble(value);
+					} catch (NumberFormatException e) {
+						throw new IllegalArgumentException("Invalid number '" + value + "' at row "
+								+ (firstDataRow + rowIndex + 1) + ", column " + (column + 1)
+								+ " in " + fileName, e);
 					}
-					else
-					{
-						double temp=Double.parseDouble(row[x]);
-						data[position][x] = temp;
-					}
-				}	
-				position++;
+				}
 			}
 		}
-		catch(Exception e){
-			//File not found exception
-			System.out.println("File not found");
-			System.out.println(e.getLocalizedMessage());
-		}
+	}
+
+	private String detectDelimiter(String line, boolean allowWhitespace)
+	{
+		if (line.indexOf(';') >= 0) return ";";
+		if (line.indexOf('\t') >= 0) return "\t";
+		if (line.indexOf(',') >= 0) return ",";
+		if (allowWhitespace && line.trim().matches(".*\\s+.*")) return "\\s+";
+		throw new IllegalArgumentException("Data must be comma, semicolon, or tab delimited");
+	}
+
+	private String[] split(String line, String delimiter)
+	{
+		if (delimiter.equals("\\s+")) return line.trim().split(delimiter);
+		return line.split(java.util.regex.Pattern.quote(delimiter), -1);
 	}
 	
 	//read in text file of data labels
 	public String[] readTXTData(String fileName)
 	{
-		try
-		{
-			id = new String[1000];
-			for(int x=0; x<id.length; x++)
-				id[x]="-1";
-			int position = 0;
-			Scanner file = new Scanner(new FileReader(fileName));
-			while (file.hasNext())
-			{
-				id[position]=deleteQuotes(file.nextLine());
-	
-				position++;
-			}
+		List<String> labels = new ArrayList<String>();
+		try (Scanner file = new Scanner(new FileReader(fileName))) {
+			while (file.hasNextLine()) labels.add(deleteQuotes(file.nextLine()).trim());
+			id = labels.toArray(new String[labels.size()]);
 			return id;
-		}
-		catch(Exception e)
-		{
-			//Exception found while opening file or reading file
-			System.out.println("file not found");
-			System.out.println(e.getLocalizedMessage());
-			return null;
+		} catch (IOException e) {
+			throw new IllegalArgumentException("Could not read ID list: " + fileName, e);
 		}
 	}
 	//return data
@@ -175,6 +153,11 @@ public class DataHandler {
 	public int getPatients()
 	{
 		return patients;
+	}
+	// Return the logical patient count. Each patient has two measurement columns.
+	public int getPatientCount()
+	{
+		return patientCount;
 	}
 	//set biomarkers or row size
 	public void setBioMarkers(int B)

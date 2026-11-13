@@ -11,6 +11,7 @@ import java.util.*;
 
 
 public class Swing2 extends JFrame implements ActionListener{
+	private static final long serialVersionUID = 5674168165038706006L;
 	JLabel text;
 	JTextField computers;
 	JButton submit;
@@ -23,12 +24,13 @@ public class Swing2 extends JFrame implements ActionListener{
 	
 	Dimension screenSize =Toolkit.getDefaultToolkit().getScreenSize();
 	
-	
 	Swing2(double[][][] normalized, String[] list)
 	{
 		normalized_data = normalized;
 		idList = list;
-		
+	}	
+	
+	public void run() {
 		content = getContentPane();
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

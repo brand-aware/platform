@@ -72,11 +72,11 @@ public class Swing3 extends JFrame implements ActionListener{
 			ips[x].setBounds(280, (x*100)+30, 105, 30);
 			content.add(ips[x]);
 	
+		}
 			submit = new JButton("Submit");
 			submit.addActionListener(this);
 			submit.setBounds(25, size*100, 105, 30);
 			content.add(submit);
-		}
 	}
 	public void actionPerformed(ActionEvent e)
 	{
@@ -90,30 +90,48 @@ public class Swing3 extends JFrame implements ActionListener{
 			{
 				//Create new cluster controller created with list of ips
 				System.out.println("starting algorithm");
-				String[] ip = new String[size];
+				final String[] ip = new String[size];
 				for(int x=0; x<size; x++)
-					ip[x]=ips[x].getText();
+					ip[x]=ips[x].getText().trim();
 				//pass ip to controller constructor
-				BioMarkerSelection BMS = new BioMarkerSelection();
+				final BioMarkerSelection BMS = new BioMarkerSelection();
 				BMS.setID(idList);
-				BMS.backwardsElimination(normalized_data, ip);
+				submit.setEnabled(false);
+                    new SwingWorker<Void, Void>() {
+                        protected Void doInBackground() {
+                            BMS.backwardsElimination(normalized_data, ip);
+                            return null;
+                        }
+                        protected void done() {
+                            submit.setEnabled(true);
+                            try {
+                                get();
+                                JOptionPane.showMessageDialog(Swing3.this, "Distributed elimination complete");
+                            } catch (Exception failure) {
+                                JOptionPane.showMessageDialog(Swing3.this, describeFailure(failure),
+                                        "Distributed elimination failed", JOptionPane.ERROR_MESSAGE);
+                            }
+                        }
+                    }.execute();
 			}
 		}
 	}
-	public boolean anyEmpty()
-	{
-		boolean empty=false;
-		String temp;
-		
-		for(int x=0; x<ips.length; x++)
-		{
-			temp = ips[x].getText();
-			System.out.println(temp);
-			if(temp == null )
-				empty=true;
-			if(temp.compareTo(" ")==0)
-				empty=true;
-		}
-		return empty;
-	}
+    public boolean anyEmpty() {
+        for (JTextField field : ips)
+            if (field.getText().trim().isEmpty()) return true;
+        return false;
+    }
+
+    private String describeFailure(Throwable failure) {
+        StringBuilder message = new StringBuilder();
+        for (Throwable cause = failure; cause != null; cause = cause.getCause()) {
+            String detail = cause.getMessage();
+            if (detail == null || detail.trim().isEmpty()) detail = cause.getClass().getSimpleName();
+            if (message.length() == 0 || !message.toString().endsWith(detail)) {
+                if (message.length() > 0) message.append("\nCaused by: ");
+                message.append(detail);
+            }
+        }
+        return message.toString();
+    }
 }

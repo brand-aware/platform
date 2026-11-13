@@ -1,0 +1,2562 @@
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+crossValidate -- function
+MeanError: 1.0
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error: 1.0
+Position: 1 Error: 1.0
+Position: 2 Error: 1.0
+Position: 3 Error: 1.0
+Position: 4 Error: 1.0
+Position: 5 Error: 1.0
+Position: 6 Error: 1.0
+Position: 7 Error: 1.0
+Position: 8 Error: 1.0
+Position: 9 Error: 1.0
+Position: 10 Error: 1.0
+Position: 11 Error: 1.0
+Position: 12 Error: 1.0
+Position: 13 Error: 1.0
+Position: 14 Error: 1.0
+Position: 15 Error: 1.0
+Position: 16 Error: 1.0
+Position: 17 Error: 1.0
+Position: 18 Error: 1.0
+Position: 19 Error: 1.0
+Position: 20 Error: 1.0
+Position: 21 Error: 1.0
+findBest --  function  --  best to be removed from list of size: 22
+remove position: 0
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+
+
+
+
+
+Position: 5 error: 1.0
+
+
+
+
+
+Position: 6 error: 1.0
+
+
+
+
+
+Position: 7 error: 1.0
+
+
+
+
+
+Position: 8 error: 1.0
+
+
+
+
+
+Position: 9 error: 1.0
+
+
+
+
+
+Position: 10 error: 1.0
+
+
+
+
+
+Position: 11 error: 1.0
+
+
+
+
+
+Position: 12 error: 1.0
+
+
+
+
+
+Position: 13 error: 1.0
+
+
+
+
+
+Position: 14 error: 1.0
+
+
+
+
+
+Position: 15 error: 1.0
+
+
+
+
+
+Position: 16 error: 1.0
+
+
+
+
+
+Position: 17 error: 1.0
+
+
+
+
+
+Position: 18 error: 1.0
+
+
+
+
+
+Position: 19 error: 1.0
+
+
+
+
+
+Position: 20 error: 1.0
+
+
+
+
+
+Position: 21 error: 1.0
+
+
+
+
+
+Position: 22 error: 1.0
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+crossValidate -- function
+MeanError: 1.0
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error: 1.0
+Position: 1 Error: 1.0
+Position: 2 Error: 1.0
+Position: 3 Error: 1.0
+Position: 4 Error: 1.0
+Position: 5 Error: 1.0
+Position: 6 Error: 1.0
+Position: 7 Error: 1.0
+Position: 8 Error: 1.0
+Position: 9 Error: 1.0
+Position: 10 Error: 1.0
+Position: 11 Error: 1.0
+Position: 12 Error: 1.0
+Position: 13 Error: 1.0
+Position: 14 Error: 1.0
+Position: 15 Error: 1.0
+Position: 16 Error: 1.0
+Position: 17 Error: 1.0
+Position: 18 Error: 1.0
+Position: 19 Error: 1.0
+Position: 20 Error: 1.0
+findBest --  function  --  best to be removed from list of size: 21
+remove position: 0
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+
+
+
+
+
+Position: 5 error: 1.0
+
+
+
+
+
+Position: 6 error: 1.0
+
+
+
+
+
+Position: 7 error: 1.0
+
+
+
+
+
+Position: 8 error: 1.0
+
+
+
+
+
+Position: 9 error: 1.0
+
+
+
+
+
+Position: 10 error: 1.0
+
+
+
+
+
+Position: 11 error: 1.0
+
+
+
+
+
+Position: 12 error: 1.0
+
+
+
+
+
+Position: 13 error: 1.0
+
+
+
+
+
+Position: 14 error: 1.0
+
+
+
+
+
+Position: 15 error: 1.0
+
+
+
+
+
+Position: 16 error: 1.0
+
+
+
+
+
+Position: 17 error: 1.0
+
+
+
+
+
+Position: 18 error: 1.0
+
+
+
+
+
+Position: 19 error: 1.0
+
+
+
+
+
+Position: 20 error: 1.0
+
+
+
+
+
+Position: 21 error: 1.0
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error: 1.0
+Position: 1 Error: 1.0
+Position: 2 Error: 1.0
+Position: 3 Error: 1.0
+Position: 4 Error: 1.0
+Position: 5 Error: 1.0
+Position: 6 Error: 1.0
+Position: 7 Error: 1.0
+Position: 8 Error: 1.0
+Position: 9 Error: 1.0
+Position: 10 Error: 1.0
+Position: 11 Error: 1.0
+Position: 12 Error: 1.0
+Position: 13 Error: 1.0
+Position: 14 Error: 1.0
+Position: 15 Error: 1.0
+Position: 16 Error: 1.0
+Position: 17 Error: 1.0
+Position: 18 Error: 1.0
+Position: 19 Error: 1.0
+findBest --  function  --  best to be removed from list of size: 20
+remove position: 0
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+
+
+
+
+
+Position: 5 error: 1.0
+
+
+
+
+
+Position: 6 error: 1.0
+
+
+
+
+
+Position: 7 error: 1.0
+
+
+
+
+
+Position: 8 error: 1.0
+
+
+
+
+
+Position: 9 error: 1.0
+
+
+
+
+
+Position: 10 error: 1.0
+
+
+
+
+
+Position: 11 error: 1.0
+
+
+
+
+
+Position: 12 error: 1.0
+
+
+
+
+
+Position: 13 error: 1.0
+
+
+
+
+
+Position: 14 error: 1.0
+
+
+
+
+
+Position: 15 error: 1.0
+
+
+
+
+
+Position: 16 error: 1.0
+
+
+
+
+
+Position: 17 error: 1.0
+
+
+
+
+
+Position: 18 error: 1.0
+
+
+
+
+
+Position: 19 error: 1.0
+
+
+
+
+
+Position: 20 error: 1.0
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error: 1.0
+Position: 1 Error: 1.0
+Position: 2 Error: 1.0
+Position: 3 Error: 1.0
+Position: 4 Error: 1.0
+Position: 5 Error: 1.0
+Position: 6 Error: 1.0
+Position: 7 Error: 1.0
+Position: 8 Error: 1.0
+Position: 9 Error: 1.0
+Position: 10 Error: 1.0
+Position: 11 Error: 1.0
+Position: 12 Error: 1.0
+Position: 13 Error: 1.0
+Position: 14 Error: 1.0
+Position: 15 Error: 1.0
+Position: 16 Error: 1.0
+Position: 17 Error: 1.0
+Position: 18 Error: 1.0
+findBest --  function  --  best to be removed from list of size: 19
+remove position: 0
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+
+
+
+
+
+Position: 5 error: 1.0
+
+
+
+
+
+Position: 6 error: 1.0
+
+
+
+
+
+Position: 7 error: 1.0
+
+
+
+
+
+Position: 8 error: 1.0
+
+
+
+
+
+Position: 9 error: 1.0
+
+
+
+
+
+Position: 10 error: 1.0
+
+
+
+
+
+Position: 11 error: 1.0
+
+
+
+
+
+Position: 12 error: 1.0
+
+
+
+
+
+Position: 13 error: 1.0
+
+
+
+
+
+Position: 14 error: 1.0
+
+
+
+
+
+Position: 15 error: 1.0
+
+
+
+
+
+Position: 16 error: 1.0
+
+
+
+
+
+Position: 17 error: 1.0
+
+
+
+
+
+Position: 18 error: 1.0
+
+
+
+
+
+Position: 19 error: 1.0
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error: 1.0
+Position: 1 Error: 1.0
+Position: 2 Error: 1.0
+Position: 3 Error: 1.0
+Position: 4 Error: 1.0
+Position: 5 Error: 1.0
+Position: 6 Error: 1.0
+Position: 7 Error: 1.0
+Position: 8 Error: 1.0
+Position: 9 Error: 1.0
+Position: 10 Error: 1.0
+Position: 11 Error: 1.0
+Position: 12 Error: 1.0
+Position: 13 Error: 1.0
+Position: 14 Error: 1.0
+Position: 15 Error: 1.0
+Position: 16 Error: 1.0
+Position: 17 Error: 1.0
+findBest --  function  --  best to be removed from list of size: 18
+remove position: 0
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+
+
+
+
+
+Position: 5 error: 1.0
+
+
+
+
+
+Position: 6 error: 1.0
+
+
+
+
+
+Position: 7 error: 1.0
+
+
+
+
+
+Position: 8 error: 1.0
+
+
+
+
+
+Position: 9 error: 1.0
+
+
+
+
+
+Position: 10 error: 1.0
+
+
+
+
+
+Position: 11 error: 1.0
+
+
+
+
+
+Position: 12 error: 1.0
+
+
+
+
+
+Position: 13 error: 1.0
+
+
+
+
+
+Position: 14 error: 1.0
+
+
+
+
+
+Position: 15 error: 1.0
+
+
+
+
+
+Position: 16 error: 1.0
+
+
+
+
+
+Position: 17 error: 1.0
+
+
+
+
+
+Position: 18 error: 1.0
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error: 1.0
+Position: 1 Error: 1.0
+Position: 2 Error: 1.0
+Position: 3 Error: 1.0
+Position: 4 Error: 1.0
+Position: 5 Error: 1.0
+Position: 6 Error: 1.0
+Position: 7 Error: 1.0
+Position: 8 Error: 1.0
+Position: 9 Error: 1.0
+Position: 10 Error: 1.0
+Position: 11 Error: 1.0
+Position: 12 Error: 1.0
+Position: 13 Error: 1.0
+Position: 14 Error: 1.0
+Position: 15 Error: 1.0
+Position: 16 Error: 1.0
+findBest --  function  --  best to be removed from list of size: 17
+remove position: 0
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+
+
+
+
+
+Position: 5 error: 1.0
+
+
+
+
+
+Position: 6 error: 1.0
+
+
+
+
+
+Position: 7 error: 1.0
+
+
+
+
+
+Position: 8 error: 1.0
+
+
+
+
+
+Position: 9 error: 1.0
+
+
+
+
+
+Position: 10 error: 1.0
+
+
+
+
+
+Position: 11 error: 1.0
+
+
+
+
+
+Position: 12 error: 1.0
+
+
+
+
+
+Position: 13 error: 1.0
+
+
+
+
+
+Position: 14 error: 1.0
+
+
+
+
+
+Position: 15 error: 1.0
+
+
+
+
+
+Position: 16 error: 1.0
+
+
+
+
+
+Position: 17 error: 1.0
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error: 1.0
+Position: 1 Error: 1.0
+Position: 2 Error: 1.0
+Position: 3 Error: 1.0
+Position: 4 Error: 1.0
+Position: 5 Error: 1.0
+Position: 6 Error: 1.0
+Position: 7 Error: 1.0
+Position: 8 Error: 1.0
+Position: 9 Error: 1.0
+Position: 10 Error: 1.0
+Position: 11 Error: 1.0
+Position: 12 Error: 1.0
+Position: 13 Error: 1.0
+Position: 14 Error: 1.0
+Position: 15 Error: 1.0
+findBest --  function  --  best to be removed from list of size: 16
+remove position: 0
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+
+
+
+
+
+Position: 5 error: 1.0
+
+
+
+
+
+Position: 6 error: 1.0
+
+
+
+
+
+Position: 7 error: 1.0
+
+
+
+
+
+Position: 8 error: 1.0
+
+
+
+
+
+Position: 9 error: 1.0
+
+
+
+
+
+Position: 10 error: 1.0
+
+
+
+
+
+Position: 11 error: 1.0
+
+
+
+
+
+Position: 12 error: 1.0
+
+
+
+
+
+Position: 13 error: 1.0
+
+
+
+
+
+Position: 14 error: 1.0
+
+
+
+
+
+Position: 15 error: 1.0
+
+
+
+
+
+Position: 16 error: 1.0
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error: 1.0
+Position: 1 Error: 1.0
+Position: 2 Error: 1.0
+Position: 3 Error: 1.0
+Position: 4 Error: 1.0
+Position: 5 Error: 1.0
+Position: 6 Error: 1.0
+Position: 7 Error: 1.0
+Position: 8 Error: 1.0
+Position: 9 Error: 1.0
+Position: 10 Error: 1.0
+Position: 11 Error: 1.0
+Position: 12 Error: 1.0
+Position: 13 Error: 1.0
+Position: 14 Error: 1.0
+findBest --  function  --  best to be removed from list of size: 15
+remove position: 0
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+
+
+
+
+
+Position: 5 error: 1.0
+
+
+
+
+
+Position: 6 error: 1.0
+
+
+
+
+
+Position: 7 error: 1.0
+
+
+
+
+
+Position: 8 error: 1.0
+
+
+
+
+
+Position: 9 error: 1.0
+
+
+
+
+
+Position: 10 error: 1.0
+
+
+
+
+
+Position: 11 error: 1.0
+
+
+
+
+
+Position: 12 error: 1.0
+
+
+
+
+
+Position: 13 error: 1.0
+
+
+
+
+
+Position: 14 error: 1.0
+
+
+
+
+
+Position: 15 error: 1.0
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error: 1.0
+Position: 1 Error: 1.0
+Position: 2 Error: 1.0
+Position: 3 Error: 1.0
+Position: 4 Error: 1.0
+Position: 5 Error: 1.0
+Position: 6 Error: 1.0
+Position: 7 Error: 1.0
+Position: 8 Error: 1.0
+Position: 9 Error: 1.0
+Position: 10 Error: 1.0
+Position: 11 Error: 1.0
+Position: 12 Error: 1.0
+Position: 13 Error: 1.0
+findBest --  function  --  best to be removed from list of size: 14
+remove position: 0
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+
+
+
+
+
+Position: 5 error: 1.0
+
+
+
+
+
+Position: 6 error: 1.0
+
+
+
+
+
+Position: 7 error: 1.0
+
+
+
+
+
+Position: 8 error: 1.0
+
+
+
+
+
+Position: 9 error: 1.0
+
+
+
+
+
+Position: 10 error: 1.0
+
+
+
+
+
+Position: 11 error: 1.0
+
+
+
+
+
+Position: 12 error: 1.0
+
+
+
+
+
+Position: 13 error: 1.0
+
+
+
+
+
+Position: 14 error: 1.0
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error: 1.0
+Position: 1 Error: 1.0
+Position: 2 Error: 1.0
+Position: 3 Error: 1.0
+Position: 4 Error: 1.0
+Position: 5 Error: 1.0
+Position: 6 Error: 1.0
+Position: 7 Error: 1.0
+Position: 8 Error: 1.0
+Position: 9 Error: 1.0
+Position: 10 Error: 1.0
+Position: 11 Error: 1.0
+Position: 12 Error: 1.0
+findBest --  function  --  best to be removed from list of size: 13
+remove position: 0
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+
+
+
+
+
+Position: 5 error: 1.0
+
+
+
+
+
+Position: 6 error: 1.0
+
+
+
+
+
+Position: 7 error: 1.0
+
+
+
+
+
+Position: 8 error: 1.0
+
+
+
+
+
+Position: 9 error: 1.0
+
+
+
+
+
+Position: 10 error: 1.0
+
+
+
+
+
+Position: 11 error: 1.0
+
+
+
+
+
+Position: 12 error: 1.0
+
+
+
+
+
+Position: 13 error: 1.0
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error: 1.0
+Position: 1 Error: 1.0
+Position: 2 Error: 1.0
+Position: 3 Error: 1.0
+Position: 4 Error: 1.0
+Position: 5 Error: 1.0
+Position: 6 Error: 1.0
+Position: 7 Error: 1.0
+Position: 8 Error: 1.0
+Position: 9 Error: 1.0
+Position: 10 Error: 1.0
+Position: 11 Error: 1.0
+findBest --  function  --  best to be removed from list of size: 12
+remove position: 0
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+
+
+
+
+
+Position: 5 error: 1.0
+
+
+
+
+
+Position: 6 error: 1.0
+
+
+
+
+
+Position: 7 error: 1.0
+
+
+
+
+
+Position: 8 error: 1.0
+
+
+
+
+
+Position: 9 error: 1.0
+
+
+
+
+
+Position: 10 error: 1.0
+
+
+
+
+
+Position: 11 error: 1.0
+
+
+
+
+
+Position: 12 error: 1.0
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error: 1.0
+Position: 1 Error: 1.0
+Position: 2 Error: 1.0
+Position: 3 Error: 1.0
+Position: 4 Error: 1.0
+Position: 5 Error: 1.0
+Position: 6 Error: 1.0
+Position: 7 Error: 1.0
+Position: 8 Error: 1.0
+Position: 9 Error: 1.0
+Position: 10 Error: 1.0
+findBest --  function  --  best to be removed from list of size: 11
+remove position: 0
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+
+
+
+
+
+Position: 5 error: 1.0
+
+
+
+
+
+Position: 6 error: 1.0
+
+
+
+
+
+Position: 7 error: 1.0
+
+
+
+
+
+Position: 8 error: 1.0
+
+
+
+
+
+Position: 9 error: 1.0
+
+
+
+
+
+Position: 10 error: 1.0
+
+
+
+
+
+Position: 11 error: 1.0
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error: 1.0
+Position: 1 Error: 1.0
+Position: 2 Error: 1.0
+Position: 3 Error: 1.0
+Position: 4 Error: 1.0
+Position: 5 Error: 1.0
+Position: 6 Error: 1.0
+Position: 7 Error: 1.0
+Position: 8 Error: 1.0
+Position: 9 Error: 1.0
+findBest --  function  --  best to be removed from list of size: 10
+remove position: 0
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+
+
+
+
+
+Position: 5 error: 1.0
+
+
+
+
+
+Position: 6 error: 1.0
+
+
+
+
+
+Position: 7 error: 1.0
+
+
+
+
+
+Position: 8 error: 1.0
+
+
+
+
+
+Position: 9 error: 1.0
+
+
+
+
+
+Position: 10 error: 1.0
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error: 1.0
+Position: 1 Error: 1.0
+Position: 2 Error: 1.0
+Position: 3 Error: 1.0
+Position: 4 Error: 1.0
+Position: 5 Error: 1.0
+Position: 6 Error: 1.0
+Position: 7 Error: 1.0
+Position: 8 Error: 1.0
+findBest --  function  --  best to be removed from list of size: 9
+remove position: 0
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+
+
+
+
+
+Position: 5 error: 1.0
+
+
+
+
+
+Position: 6 error: 1.0
+
+
+
+
+
+Position: 7 error: 1.0
+
+
+
+
+
+Position: 8 error: 1.0
+
+
+
+
+
+Position: 9 error: 1.0
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error: 1.0
+Position: 1 Error: 1.0
+Position: 2 Error: 1.0
+Position: 3 Error: 1.0
+Position: 4 Error: 1.0
+Position: 5 Error: 1.0
+Position: 6 Error: 1.0
+Position: 7 Error: 1.0
+findBest --  function  --  best to be removed from list of size: 8
+remove position: 0
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+
+
+
+
+
+Position: 5 error: 1.0
+
+
+
+
+
+Position: 6 error: 1.0
+
+
+
+
+
+Position: 7 error: 1.0
+
+
+
+
+
+Position: 8 error: 1.0
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error: 1.0
+Position: 1 Error: 1.0
+Position: 2 Error: 1.0
+Position: 3 Error: 1.0
+Position: 4 Error: 1.0
+Position: 5 Error: 1.0
+Position: 6 Error: 1.0
+findBest --  function  --  best to be removed from list of size: 7
+remove position: 0
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+
+
+
+
+
+Position: 5 error: 1.0
+
+
+
+
+
+Position: 6 error: 1.0
+
+
+
+
+
+Position: 7 error: 1.0
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error: 1.0
+Position: 1 Error: 1.0
+Position: 2 Error: 1.0
+Position: 3 Error: 1.0
+Position: 4 Error: 1.0
+Position: 5 Error: 1.0
+findBest --  function  --  best to be removed from list of size: 6
+remove position: 0
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+
+
+
+
+
+Position: 5 error: 1.0
+
+
+
+
+
+Position: 6 error: 1.0
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error: 1.0
+Position: 1 Error: 1.0
+Position: 2 Error: 1.0
+Position: 3 Error: 1.0
+Position: 4 Error: 1.0
+findBest --  function  --  best to be removed from list of size: 5
+remove position: 0
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+
+
+
+
+
+Position: 5 error: 1.0
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error: 1.0
+Position: 1 Error: 1.0
+Position: 2 Error: 1.0
+Position: 3 Error: 1.0
+findBest --  function  --  best to be removed from list of size: 4
+remove position: 0
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+crossValidate -- function
+crossValidate -- function
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error: 1.0
+Position: 1 Error: 1.0
+Position: 2 Error: 1.0
+findBest --  function  --  best to be removed from list of size: 3
+remove position: 0
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+crossValidate -- function
+crossValidate -- function
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error : 1.0
+MeanError: 1.0
+Position: 0 Error: 1.0
+Position: 1 Error: 1.0
+findBest --  function  --  best to be removed from list of size: 2
+remove position: 0
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0

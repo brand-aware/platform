@@ -14,7 +14,27 @@ import weka.filters.unsupervised.attribute.NumericToNominal;
 import weka.filters.unsupervised.instance.RemovePercentage;
 
 public class BioMarkerSelection {
-	double[] last;
+	private final java.util.List<Removal> removalHistory = new java.util.ArrayList<Removal>();
+
+    private static final class Removal {
+        final int order;
+        final String label;
+        final double errorRate;
+
+        Removal(int order, String label, double errorRate) {
+            this.order = order;
+            this.label = label;
+            this.errorRate = errorRate;
+        }
+    }
+
+    private static final class WorkerLane {
+        final String ip;
+        int firstCandidate = -1;
+        WorkerLane(String ip) { this.ip = ip; }
+    }
+	double[][] last;
+    private final BioMarkerSelection_Local evaluator = new BioMarkerSelection_Local();
 	String[] ID;
 	int[] test_pat, train_pat;
 	Vector<ServerThread> ServerList;
@@ -43,100 +63,241 @@ public class BioMarkerSelection {
 	{
 		train_pat=pat;
 	}
-	public void startThreads(String[] Ip)
-	{
-		ServerList = new Vector<ServerThread>();
-		
-		for(int i=0; i<Ip.length; i++)
-		{
-			try {
-				ServerList.add(new ServerThread(Ip[i]));
-				if(ServerList.elementAt(i).checkConnection())
-					System.out.println("Server connected to "+Ip[i] + " successfully.");
-				else
-				{
-					System.out.println("Server could not connect to "+Ip[i] + ".");
-					ServerList.removeElementAt(i);
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}			
-		}
-	}
-	
-	public void backwardsElimination(double[][][] data, String[] Ip)
-	{
-		System.out.println("BackwardsElimination");
-		startThreads(Ip);
-		double remove_pos = 0;
-		double[][] temp_data;
-		int nextPosition ;
-		for(int x=data.length-21; x<data.length-20; x++)
-		{
-			crossValidate = new double[data.length];
-			for(int y=data.length-1; y<data.length; y++)
-			{
-				//cross validation of data
-				data=removeRow_keepLast(data, y);
-				//Flatten data =p
-				temp_data = threeDtoTwoD(data);
-				do{
-					//NOTHING!!!
-					nextPosition=checkDone();
-				}while(nextPosition<0);
-				
-				ServerList.elementAt(nextPosition).setData(temp_data,y);
-				ServerList.elementAt(nextPosition).setDone(false);
-				ServerList.elementAt(nextPosition).start();
-				
-				//printMatrix(temp_data);
-				
-				data=addRow(data, last, y);
-			}
-			do{
-				//nothing!!
-			}while(!anyRunning());
-			
-			//calculate best candidate for removal in the crossValidate error set
-			remove_pos=findBest(crossValidate);
-			
-			//remove one antigen from the list
-			data = removeRow(data, ID, remove_pos);
-		}	
-	}
-	public int checkDone()
-	{
-		for(int i=0; i<ServerList.size(); i++)
-		{
-			if(ServerList.elementAt(i).getIsDone())
-			{
-				if(ServerList.elementAt(i).getPosition()>-1)
-				{
-					crossValidate[ServerList.elementAt(i).getPosition()] = ServerList.elementAt(i).getErrorRate();
-					//System.out.println("Poistion: " +ServerList.elementAt(i).getPosition()+ " Error Rate: " + ServerList.elementAt(i).getErrorRate());
-				}
-				return i;				
-			}		
-		}
-		return -1;
-	}
-	public boolean anyRunning()
-	{
-		
-		for(int i=0; i<ServerList.size(); i++)
-		{
-			if(!ServerList.elementAt(i).getIsDone())
-			{
-				return false;				
-			}		
-			else
-			{
-				crossValidate[ServerList.elementAt(i).getPosition()] = ServerList.elementAt(i).getErrorRate();
-				//System.out.println("Poistion: " +ServerList.elementAt(i).getPosition()+ " Error Rate: " + ServerList.elementAt(i).getErrorRate());
-			}
-		}
-		return true;
-	}
+    public void startThreads(String[] ips) {
+        if (ips == null || ips.length == 0) throw new IllegalArgumentException("No worker addresses");
+        java.util.Set<java.net.InetAddress> addresses = new java.util.HashSet<java.net.InetAddress>();
+        for (String ip : ips) {
+            if (ip == null || ip.trim().isEmpty()) throw new IllegalArgumentException("Empty worker address");
+            try {
+                String address = ip.trim();
+                java.net.InetAddress resolved = java.net.InetAddress.getByName(address);
+                if (resolved.isAnyLocalAddress())
+                    throw new IllegalArgumentException("Worker address " + address
+                            + " is a wildcard bind address; enter that machine's IPv4 address instead");
+                if (!addresses.add(resolved))
+                    throw new IllegalArgumentException("Duplicate worker address: " + ip);
+                // CPU discovery uses a short BWP1 ping after address validation.
+                System.out.println("Configured worker: " + address);
+            } catch (IOException e) { throw new IllegalStateException("Cannot resolve worker: " + ip, e); }
+        }
+    }
+    private int[] discoverWorkerLaneCounts(String[] ips) {
+        int[] laneCounts = new int[ips.length];
+        int localProcessors = CpuCapacity.systemProcessorCount();
+        for (int index = 0; index < ips.length; index++) {
+            String address = ips[index].trim();
+            int processors = localProcessors;
+            try {
+                processors = new ServerThread(address, 5000).getRemoteProcessorCount();
+            } catch (IOException | RuntimeException failure) {
+                System.err.println("Could not read processor count from worker " + address + ": "
+                        + failure.getMessage() + "; using controller count " + localProcessors);
+            }
+            int cap = CpuCapacity.threadLimit(processors, 80);
+            int configured = Integer.getInteger("distributed.lanesPerWorker", cap);
+            laneCounts[index] = Math.max(1, Math.min(cap, configured));
+            System.out.println("Worker " + address + " reports " + processors
+                    + " logical processors; using up to " + laneCounts[index] + " lanes (80% cap)");
+        }
+        return laneCounts;
+    }
+    public void backwardsElimination(double[][][] data, final String[] ips) {
+        if (data == null || data.length == 0 || data[0] == null || data[0].length < 2)
+            throw new IllegalArgumentException("At least two antigens are required");
+        if (ID == null || ID.length != data[0].length)
+            throw new IllegalArgumentException("Antigen IDs must match matrix columns");
+        validateFiniteInput(data);
+        startThreads(ips);
+        ensureLocalWorkers(ips);
+        removalHistory.clear();
+        final int[] workerLaneCounts = discoverWorkerLaneCounts(ips);
+        final java.util.List<java.util.List<WorkerLane>> lanesByWorker = new java.util.ArrayList<java.util.List<WorkerLane>>();
+        int laneCount = 0;
+        for (int worker = 0; worker < ips.length; worker++) {
+            java.util.List<WorkerLane> workerLanes = new java.util.ArrayList<WorkerLane>();
+            for (int lane = 0; lane < workerLaneCounts[worker]; lane++)
+                workerLanes.add(new WorkerLane(ips[worker].trim()));
+            lanesByWorker.add(workerLanes);
+            laneCount += workerLaneCounts[worker];
+        }
+        final java.util.List<WorkerLane> lanes = new java.util.ArrayList<WorkerLane>();
+        for (java.util.List<WorkerLane> workerLanes : lanesByWorker) lanes.addAll(workerLanes);
+        final int activeLaneCount = laneCount;
+        java.util.concurrent.ExecutorService executor = java.util.concurrent.Executors.newFixedThreadPool(laneCount);
+        int eliminationIteration = 0;
+        try {
+            while (data[0].length > 1) {
+                int remainingAntigens = data[0].length;
+                if (eliminationIteration == 0 || eliminationIteration % 5 == 0 || remainingAntigens == 2) {
+                    System.out.println("Elimination progress: " + remainingAntigens
+                            + " antigens remain; " + (remainingAntigens - 1)
+                            + " still to remove (removal " + (eliminationIteration + 1) + ")");
+                }
+                final double[][][] current = data;
+                final double[] errors = new double[current[0].length];
+                crossValidate = errors;
+                java.util.Arrays.fill(errors, Double.NaN);
+                final java.util.concurrent.ConcurrentLinkedQueue<Integer> pending = new java.util.concurrent.ConcurrentLinkedQueue<Integer>();
+                final int initiallyAssigned = Math.min(activeLaneCount, errors.length);
+                for (int candidate = initiallyAssigned; candidate < errors.length; candidate++) pending.add(candidate);
+                final java.util.concurrent.atomic.AtomicInteger remaining = new java.util.concurrent.atomic.AtomicInteger(errors.length);
+                int[] assignedPerWorker = new int[ips.length];
+                for (int candidate = 0; candidate < initiallyAssigned; candidate++) {
+                    int selectedWorker = -1;
+                    for (int worker = 0; worker < ips.length; worker++) {
+                        if (assignedPerWorker[worker] >= workerLaneCounts[worker]) continue;
+                        if (selectedWorker < 0
+                                || (long) assignedPerWorker[worker] * workerLaneCounts[selectedWorker]
+                                < (long) assignedPerWorker[selectedWorker] * workerLaneCounts[worker])
+                            selectedWorker = worker;
+                    }
+                    if (selectedWorker < 0) throw new IllegalStateException("No free worker lane for candidate assignment");
+                    lanesByWorker.get(selectedWorker).get(assignedPerWorker[selectedWorker]++).firstCandidate = candidate;
+                }
+                System.out.println("Starting iteration with " + errors.length + " candidates across "
+                        + ips.length + " configured workers (" + activeLaneCount + " lanes total; "
+                        + BioMarkerSelection_Local.getFoldThreadCount() + " local fold threads; controller has "
+                        + BioMarkerSelection_Local.getSystemProcessorCount() + " logical processors)");
+                java.util.List<java.util.concurrent.Callable<Void>> tasks = new java.util.ArrayList<java.util.concurrent.Callable<Void>>();
+                // Multiple lanes per worker let each machine evaluate independent candidates concurrently.
+                for (WorkerLane lane : lanes) {
+                    final String ip = lane.ip;
+                    final int firstCandidate = lane.firstCandidate;
+                    tasks.add(new java.util.concurrent.Callable<Void>() {
+                        public Void call() throws InterruptedException {
+                            System.out.println("Worker lane started: " + ip + "; first candidate "
+                                    + (firstCandidate >= 0 ? firstCandidate : "from queue"));
+                            Integer assigned = firstCandidate >= 0 ? firstCandidate : null;
+                            while (remaining.get() > 0) {
+                                if (Thread.currentThread().isInterrupted()) throw new InterruptedException();
+                                Integer candidate = assigned;
+                                assigned = null;
+                                if (candidate == null) candidate = pending.poll();
+                                if (candidate == null) {
+                                    Thread.sleep(50);
+                                    continue;
+                                }
+                                try {
+                                    double[][] matrix = threeDtoTwoD(removeCandidate(current, candidate));
+                                    double error = evaluateCandidate(ip, matrix, candidate);
+                                    if (!Double.isFinite(error) || error < 0 || error > 1)
+                                        throw new IOException("Invalid error rate: " + error);
+                                    errors[candidate] = error;
+                                    remaining.decrementAndGet();
+                                } catch (IOException | RuntimeException failure) {
+                                    // Keep this candidate outstanding; any available worker can retry it.
+                                    pending.add(candidate);
+                                    System.err.println("Worker " + ip + " failed candidate " + candidate
+                                            + "; retry pending: " + failure.getMessage());
+                                    Thread.sleep(1000);
+                                }
+                            }
+                            return null;
+                        }
+                    });
+                }
+                // Iteration barrier: every candidate must have a successful error rate
+                // before selecting an antigen or constructing the next iteration.
+                for (java.util.concurrent.Future<Void> result : executor.invokeAll(tasks)) result.get();
+                int best = findBest(crossValidate);
+                data = removeCandidate(current, best);
+                removalHistory.add(new Removal(removalHistory.size() + 1, ID[best], errors[best]));
+                ID = removeID(ID, best);
+                eliminationIteration++;
+            }
+            reportRemovals();
+            System.out.println("---------------------------Start of Antigen List---------------------------");
+            for (Removal removal : removalHistory) {
+                System.out.println("Removal: " + removal.order + " Antigen: " + removal.label
+                        + " Error: " + removal.errorRate);
+            }
+            for (String antigen : ID) {
+                System.out.println("Remaining Antigen: " + antigen);
+            }
+            System.out.println("----------------------------End of Antigen List----------------------------");
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            throw new IllegalStateException("Distributed elimination interrupted", e);
+        } catch (java.util.concurrent.ExecutionException e) {
+            throw new IllegalStateException("Distributed evaluation failed", e.getCause());
+        } finally { executor.shutdownNow(); }
+    }
+    private void reportRemovals() {
+        java.nio.file.Path output = java.nio.file.Paths.get("biomarker-removal-history.csv").toAbsolutePath();
+        try (java.io.BufferedWriter writer = java.nio.file.Files.newBufferedWriter(
+                output, java.nio.charset.StandardCharsets.UTF_8)) {
+            writer.write("removal_order,label,error_rate");
+            writer.newLine();
+            for (Removal removal : removalHistory) {
+                writer.write(removal.order + ",\"" + removal.label.replace("\"", "\"\"")
+                        + "\"," + removal.errorRate);
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            throw new IllegalStateException("Cannot write biomarker removal history to " + output, e);
+        }
+        java.util.List<Removal> ranked = new java.util.ArrayList<Removal>(removalHistory);
+        // Stable sorting keeps removal order for equal error rates.
+        java.util.Collections.sort(ranked, new java.util.Comparator<Removal>() {
+            public int compare(Removal left, Removal right) {
+                return Double.compare(right.errorRate, left.errorRate);
+            }
+        });
+        System.out.println("Top " + Math.min(10, ranked.size()) + " removal error rates (highest first):");
+        for (int i = 0; i < Math.min(10, ranked.size()); i++) {
+            Removal removal = ranked.get(i);
+            System.out.println((i + 1) + ". " + removal.label + ": " + removal.errorRate
+                    + " (removal " + removal.order + ")");
+        }
+        System.out.println("Ordered biomarker removal history: " + output);
+    }
+    protected double evaluateCandidate(String ip, double[][] matrix, int candidate) throws IOException {
+        ServerThread job = new ServerThread(ip);
+        try {
+            job.setData(matrix, candidate);
+            job.run();
+            return job.getErrorRate();
+        } finally { job.closeSocket(); }
+    }
+    private void ensureLocalWorkers(String[] ips) {
+        for (String ip : ips) {
+            try {
+                if (java.net.InetAddress.getByName(ip.trim()).isLoopbackAddress())
+                    LocalWorkerProcess.ensureRunning(ip.trim());
+            } catch (IOException e) {
+                throw new IllegalStateException("Cannot start local worker at " + ip, e);
+            }
+        }
+    }
+    private void validateFiniteInput(double[][][] data) {
+        int channels = data[0][0] == null ? 0 : data[0][0].length;
+        if (channels == 0) throw new IllegalArgumentException("Normalized input has no measurement channels");
+        for (int patient = 0; patient < data.length; patient++) {
+            if (data[patient] == null || data[patient].length != ID.length)
+                throw new IllegalArgumentException("Normalized input has an invalid antigen count for patient "
+                        + (patient + 1));
+            for (int antigen = 0; antigen < ID.length; antigen++) {
+                if (data[patient][antigen] == null || data[patient][antigen].length != channels)
+                    throw new IllegalArgumentException("Normalized input has an invalid channel count for antigen "
+                            + ID[antigen] + ", patient " + (patient + 1));
+                for (int channel = 0; channel < channels; channel++) {
+                    if (!Double.isFinite(data[patient][antigen][channel]))
+                    throw new IllegalArgumentException("Non-finite normalized value for antigen row "
+                                + (antigen + 1) + " (label: " + ID[antigen] + "), patient "
+                                + (patient + 1) + ", channel " + (channel + 1)
+                                + "; check for zero or invalid input measurements");
+                }
+            }
+        }
+    }
+    private double[][][] removeCandidate(double[][][] data, int candidate) {
+        double[][][] result = new double[data.length][data[0].length - 1][];
+        for (int patient = 0; patient < data.length; patient++)
+            for (int marker = 0; marker < data[0].length; marker++)
+                if (marker != candidate)
+                    result[patient][marker < candidate ? marker : marker - 1] = data[patient][marker].clone();
+        return result;
+    }
 	public int findBest(double[] list)
 	{
 		//return the position of the best value in the set
@@ -171,7 +332,7 @@ public class BioMarkerSelection {
 					
 			}
 		}
-		removeID(idList, removed);
+		ID = removeID(idList, removed);
 		return tmp;
 	}
 	public String[] removeID(String[] list, int x)
@@ -192,62 +353,27 @@ public class BioMarkerSelection {
 		return temp;
 	}
 	
-	public double[][][] removeRow_keepLast(double[][][] temp, double x)
-	{
-		System.out.println("removeRow_keepLast -- function");
-		System.out.println("old data size - temp.length: "+temp.length+", temp[0].length"+temp[0].length+", temp[0][0].length: "+temp[0][0].length);
-		last = new double[temp[0].length];
-		double[][][] tmp = new double[temp.length][temp[0].length-1][temp[0][0].length];
-		for(int a=0; a<temp.length; a++)
-		{
-			for(int b=0; b<temp[0].length; b++)
-			{
-				if(b < x)
-					for(int c=0; c<temp[0][0].length; c++)
-						tmp[a][b][c] = temp[a][b][c];
-				else if(b > x)
-					for(int d=0; d<temp[0][0].length; d++)
-						tmp[a][b-1][d] = temp[a][b][d];
-				else if(b == x)
-					for(int e=0; e<temp[0][0].length; e++)
-						last[b] = temp[a][b][e];	
-				else
-					System.out.println("removeRow_keepLast function BROKEN....");
-			}
-		}
-		System.out.println("new data size - tmp.length: "+tmp.length+", tmp[0].length"+tmp[0].length+", tmp[0][0].length: "+tmp[0][0].length);
-		return tmp;
-	}
-	public double[][][] addRow(double[][][] temp, double[] row, double position)
-	{
-		System.out.println("addRow -- function");
-		System.out.println("old data size - temp.length: "+temp.length+", temp[0].length"+temp[0].length+", temp[0][0].length: "+temp[0][0].length);
-
-		double[][][] tmp2 = new double[temp.length][temp[0].length+1][temp[0][0].length];
-		for(int a=0; a<temp.length; a++)
-		{
-			for(int b=0; b<temp[0].length; b++)
-			{
-				if(b < position)
-					for(int c=0; c<temp[0][0].length; c++)
-						tmp2[a][b][c] = temp[a][b][c];
-						
-				else if(b > position)
-					for(int d=0; d<temp[0][0].length; d++)
-						tmp2[a][b][d] = temp[a][b][d];
-				else
-					for(int e=0; e<temp[0][0].length; e++)
-						tmp2[a][b][e] = row[e];
-			}
-		}		
-		System.out.println("new data size - tmp2.length: "+tmp2.length+", tmp2[0].length"+tmp2[0].length+", tmp2[0][0].length: "+tmp2[0][0].length);
-		return tmp2;
-	}
-	
+    public double[][][] removeRow_keepLast(double[][][] data, double position) {
+        int marker = (int) position;
+        if (position != marker || marker < 0 || marker >= data[0].length)
+            throw new IllegalArgumentException("Invalid antigen position");
+        last = new double[data.length][];
+        for (int patient = 0; patient < data.length; patient++) last[patient] = data[patient][marker].clone();
+        return removeCandidate(data, marker);
+    }
+    public double[][][] addRow(double[][][] data, double[][] row, double position) {
+        int marker = (int) position;
+        if (position != marker || marker < 0 || marker > data[0].length || row.length != data.length)
+            throw new IllegalArgumentException("Invalid antigen position or patient count");
+        double[][][] result = new double[data.length][data[0].length + 1][];
+        for (int patient = 0; patient < data.length; patient++)
+            for (int column = 0; column < result[patient].length; column++)
+                result[patient][column] = (column == marker ? row[patient] :
+                    data[patient][column < marker ? column : column - 1]).clone();
+        return result;
+    }
 	public double[][] threeDtoTwoD(double[][][] old)
 	{
-		System.out.println("threeDtoTwoD  --  function");
-		System.out.println("old.length: "+old.length+", old[0].length: "+old[0].length+", old[0][0].length: "+old[0][0].length);
 		double[][] temp = new double[old.length * old[0][0].length][old[0].length];
 		int pos=0;
 		
@@ -262,38 +388,12 @@ public class BioMarkerSelection {
 				pos++;
 			}
 		}
-		System.out.println("temp.length: "+temp.length+", temp[0].length: "+temp[0].length);
-
 		return temp;
 	}
 	
-	public double crossValidate(double[][] data, int fold)
-	{
-		System.out.println("crossValidate -- function");
-		//function takes in a data set of type double[][]
-		//function returns the mean error returned by cross validation
-		
-		//B is an arbritrary number of times to make 5 groupings of the patients
-		//int B=500;
-		int B=1;  //testing purposes
-		double meanError=0;
-		
-		double[] error = new double[B];
-		
-		for(int a=0; a<B; a++)
-		{
-			System.out.println("crossvalid iteration: "+a);
-			error[a] = crossValidDefault(createRandomGroups(data), fold);
-		}
-		//sum up error array
-		for(int x=0; x<error.length; x++)
-		{
-			meanError+=error[x];
-		}
-		//take mean of sum
-		meanError = meanError/error.length;
-		return meanError;
-	}
+    public double crossValidate(double[][] data, int fold) {
+        return evaluator.crossValidate(data, fold);
+    }
 	public double RandomForestTest(File Data) throws Exception
 	{
 		System.out.println("RandomForestTest  --  function");
@@ -474,53 +574,10 @@ public class BioMarkerSelection {
 			System.out.println();
 		}
 	}
-	public double crossValidDefault(double[][] data, int fold)
-	{
-		System.out.println("crossValidDefault  --  function");
-		System.out.println("data.length: "+data.length+", data[0].length: "+data[0].length);
-		double errorRate=0;
-		double[] error = new double[fold];
-		
-		double[][] trans_data = transpose(data);
-		int start, stop;
-		/*for(int x=0; x<fold; x++)
-		{
-			start = x * (data.length/fold);
-			stop = start + (data.length/fold);
-			if(x != fold-1)	
-				createGroups(start, stop, trans_data, fold);
-			else
-				createGroups(start, data.length-1, trans_data, fold);
-			
-			try
-			{
-				error[x] = RandomForestTest(new File("test_temp.csv"), new File("train_temp.csv"));
-			}
-			catch (Exception e)
-			{
-				System.out.println(e);
-			}
-			
-		}*/
-		prepCSV(trans_data, fold);
+    public double crossValidDefault(double[][] data, int fold) {
+        return evaluator.crossValidDefault(data, fold);
+    }
 
-		try
-		{
-			errorRate = RandomForestTest(new File("data_temp.csv"));
-		}
-		catch (Exception e)
-		{
-			System.out.println(e);
-		}
-		//sum error returned from random forest
-		/*for(int y=0; y<fold; y++)
-		{
-			errorRate+=error[y];
-		}
-		//get mean error
-		errorRate = errorRate/fold;*/
-		return errorRate;
-	}
 	/*
 	public void createGroups(int start, int stop, double[][] data, int fold)
 	{
@@ -603,7 +660,7 @@ public class BioMarkerSelection {
 		catch (Exception e) 
 		{ 
 			System.err.println ("Error writing to file");
-			System.out.println(e);
+			throw new IllegalStateException("Evaluation failed", e);
 		}		
 	}
 	*/
@@ -664,7 +721,7 @@ public class BioMarkerSelection {
 		catch (Exception e) 
 		{ 
 			System.err.println ("Error writing to file");
-			System.out.println(e);
+			throw new IllegalStateException("Evaluation failed", e);
 		}		
 	}
 	

@@ -1,0 +1,199 @@
+threeDtoTwoD  --  function
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 4, old[0][0].length: 2
+old.length: 5, old[0].length: 4, old[0][0].length: 2
+temp.length: 10, temp[0].length: 4
+temp.length: 10, temp[0].length: 4
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 4, old[0][0].length: 2
+temp.length: 10, temp[0].length: 4
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 4, old[0][0].length: 2
+temp.length: 10, temp[0].length: 4
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 4, old[0][0].length: 2
+temp.length: 10, temp[0].length: 4
+findBest --  function  --  best to be removed from list of size: 5
+removeID  -- function
+Removing e from antigen list
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 3, old[0][0].length: 2
+threeDtoTwoD  --  function
+temp.length: 10, temp[0].length: 3
+old.length: 5, old[0].length: 3, old[0][0].length: 2
+threeDtoTwoD  --  function
+temp.length: 10, temp[0].length: 3
+old.length: 5, old[0].length: 3, old[0][0].length: 2
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 3, old[0][0].length: 2
+temp.length: 10, temp[0].length: 3
+temp.length: 10, temp[0].length: 3
+findBest --  function  --  best to be removed from list of size: 4
+removeID  -- function
+Removing d from antigen list
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 2, old[0][0].length: 2
+temp.length: 10, temp[0].length: 2
+threeDtoTwoD  --  function
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 2, old[0][0].length: 2
+old.length: 5, old[0].length: 2, old[0][0].length: 2
+temp.length: 10, temp[0].length: 2
+temp.length: 10, temp[0].length: 2
+findBest --  function  --  best to be removed from list of size: 3
+removeID  -- function
+Removing c from antigen list
+threeDtoTwoD  --  function
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 1, old[0][0].length: 2
+temp.length: 10, temp[0].length: 1
+old.length: 5, old[0].length: 1, old[0][0].length: 2
+temp.length: 10, temp[0].length: 1
+findBest --  function  --  best to be removed from list of size: 2
+removeID  -- function
+Removing b from antigen list
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 4, old[0][0].length: 2
+temp.length: 10, temp[0].length: 4
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 4, old[0][0].length: 2
+threeDtoTwoD  --  function
+temp.length: 10, temp[0].length: 4
+old.length: 5, old[0].length: 4, old[0][0].length: 2
+temp.length: 10, temp[0].length: 4
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 4, old[0][0].length: 2
+temp.length: 10, temp[0].length: 4
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 4, old[0][0].length: 2
+temp.length: 10, temp[0].length: 4
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 4, old[0][0].length: 2
+temp.length: 10, temp[0].length: 4
+Worker two failed candidate 1; retry pending: simulated connection failure
+Worker one failed candidate 1; retry pending: simulated timeout
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 4, old[0][0].length: 2
+temp.length: 10, temp[0].length: 4
+Worker two failed candidate 1; retry pending: Invalid error rate: NaN
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 4, old[0][0].length: 2
+temp.length: 10, temp[0].length: 4
+removeID  -- function
+Removing a from antigen list
+threeDtoTwoD  --  function
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 3, old[0][0].length: 2
+temp.length: 10, temp[0].length: 3
+old.length: 5, old[0].length: 3, old[0][0].length: 2
+temp.length: 10, temp[0].length: 3
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 3, old[0][0].length: 2
+temp.length: 10, temp[0].length: 3
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 3, old[0][0].length: 2
+temp.length: 10, temp[0].length: 3
+removeID  -- function
+Removing b from antigen list
+threeDtoTwoD  --  function
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 2, old[0][0].length: 2
+old.length: 5, old[0].length: 2, old[0][0].length: 2
+temp.length: 10, temp[0].length: 2
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 2, old[0][0].length: 2
+temp.length: 10, temp[0].length: 2
+temp.length: 10, temp[0].length: 2
+removeID  -- function
+Removing c from antigen list
+threeDtoTwoD  --  function
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 1, old[0][0].length: 2
+old.length: 5, old[0].length: 1, old[0][0].length: 2
+temp.length: 10, temp[0].length: 1
+temp.length: 10, temp[0].length: 1
+removeID  -- function
+Removing d from antigen list
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 4, old[0][0].length: 2
+temp.length: 10, temp[0].length: 4
+Worker offline failed candidate 0; retry pending: offline worker
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 4, old[0][0].length: 2
+temp.length: 10, temp[0].length: 4
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 4, old[0][0].length: 2
+temp.length: 10, temp[0].length: 4
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 4, old[0][0].length: 2
+temp.length: 10, temp[0].length: 4
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 4, old[0][0].length: 2
+temp.length: 10, temp[0].length: 4
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 4, old[0][0].length: 2
+temp.length: 10, temp[0].length: 4
+findBest --  function  --  best to be removed from list of size: 5
+removeID  -- function
+Removing a from antigen list
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 3, old[0][0].length: 2
+temp.length: 10, temp[0].length: 3
+Worker offline failed candidate 0; retry pending: offline worker
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 3, old[0][0].length: 2
+temp.length: 10, temp[0].length: 3
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 3, old[0][0].length: 2
+temp.length: 10, temp[0].length: 3
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 3, old[0][0].length: 2
+temp.length: 10, temp[0].length: 3
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 3, old[0][0].length: 2
+temp.length: 10, temp[0].length: 3
+findBest --  function  --  best to be removed from list of size: 4
+removeID  -- function
+Removing b from antigen list
+threeDtoTwoD  --  function
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 2, old[0][0].length: 2
+old.length: 5, old[0].length: 2, old[0][0].length: 2
+temp.length: 10, temp[0].length: 2
+temp.length: 10, temp[0].length: 2
+Worker offline failed candidate 0; retry pending: offline worker
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 2, old[0][0].length: 2
+temp.length: 10, temp[0].length: 2
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 2, old[0][0].length: 2
+temp.length: 10, temp[0].length: 2
+findBest --  function  --  best to be removed from list of size: 3
+removeID  -- function
+Removing c from antigen list
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 1, old[0][0].length: 2
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 1, old[0][0].length: 2
+temp.length: 10, temp[0].length: 1
+temp.length: 10, temp[0].length: 1
+Worker offline failed candidate 0; retry pending: offline worker
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 1, old[0][0].length: 2
+temp.length: 10, temp[0].length: 1
+findBest --  function  --  best to be removed from list of size: 2
+removeID  -- function
+Removing d from antigen list
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 4, old[0][0].length: 2
+temp.length: 10, temp[0].length: 4
+Worker offline failed candidate 0; retry pending: still unavailable
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 4, old[0][0].length: 2
+temp.length: 10, temp[0].length: 4
+Worker offline failed candidate 1; retry pending: still unavailable
+threeDtoTwoD  --  function
+old.length: 5, old[0].length: 4, old[0][0].length: 2
+temp.length: 10, temp[0].length: 4
+Worker offline failed candidate 2; retry pending: still unavailable
+PASS: immediate worker reuse, iteration barrier, candidate mapping, retries, failover, and cancellation

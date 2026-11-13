@@ -1,6 +1,6 @@
-5
-25
-C:\Users\wontzer\My Code\java\eclipse\protein_validation\platform\data\OliverNewPatients3_24Cy3_condensed.csv
-C:\Users\wontzer\My Code\java\eclipse\protein_validation\platform\data\OliverNewPatients3_24Cy5_condensed.csv
-C:\Users\wontzer\My Code\java\eclipse\protein_validation\platform\data\idlist_condensed.txt
-C:\Users\wontzer\My Code\java\eclipse\protein_validation\platform\data\idlist_condensed.txt
+10
+561
+C:\Users\miked\eclipse-workspace\workspace\platform\data\OliverNewPatients3_24Cy3.csv
+C:\Users\miked\eclipse-workspace\workspace\platform\data\OliverNewPatients3_24Cy5.csv
+C:\Users\miked\eclipse-workspace\workspace\platform\data\idlist_numeric_561.txt
+C:\Users\miked\eclipse-workspace\workspace\platform\data\idlist_numeric_561.txt

@@ -1,0 +1,2309 @@
+GOT HERE!!!!!
+Found control Marker; Cy3/Cy5 pre-labeled Albumin at 0
+Found control bkg control; Albumin, unlabeled at 23
+Found control Marker; Cy3/Cy5 pre-labeled Albumin at 0
+Found control bkg control; Albumin, unlabeled at 23
+Found data control [D@27c170f0 at 0
+Found data control [D@5451c3a8 at 23
+Found data control at 0
+Found data control at 23
+Deleted = 0
+tempID.length = 22
+cy3Deleted.length = 22, cy5Deleted[0].length = 10
+count.length = 22
+41_mix1, 41_mix2, 47_mix1, 47_mix2, 50_mix1, 50_mix2, 56_mix1, 56_mix2, 74_mix1, 74_mix2, 
+7977.5, 5959.0, 1442.0, 1268.0, 1658.5, 3203.0, 2462.0, 4048.5, 5011.5, 4072.5, 
+6942.0, 5229.0, 1988.5, 2546.5, 2902.0, 4177.0, 4470.5, 3516.0, 10717.0, 5765.5, 
+3954.5, 3750.0, 1524.0, 1845.5, 1367.0, 2029.0, 2366.5, 1650.5, 4592.0, 3734.5, 
+4476.0, 3843.5, 1241.0, 1602.5, 1478.0, 1953.0, 2497.5, 1441.0, 4820.0, 3198.5, 
+4699.0, 2066.5, 1790.0, 1218.0, 1880.0, 2159.0, 1083.5, 938.0, 1608.5, 1679.5, 
+4163.0, 2352.5, 1205.5, 955.0, 1520.5, 2251.5, 1756.5, 1320.0, 2590.0, 1918.0, 
+4377.0, 4368.5, 1580.5, 2355.5, 1109.5, 1714.0, 3375.5, 1975.0, 6417.0, 3244.0, 
+4420.0, 3944.0, 1831.0, 2916.5, 1644.0, 2290.0, 2300.0, 1554.5, 3840.0, 3236.5, 
+5325.0, 4223.5, 1742.5, 2107.0, 1569.5, 2077.0, 1663.0, 1706.0, 6356.0, 4279.5, 
+3482.5, 3506.5, 1291.0, 1867.5, 1535.0, 1832.5, 2718.0, 1587.5, 4021.5, 3465.0, 
+5189.0, 1620.5, 639.0, 480.0, 1141.0, 1591.0, 738.0, 817.5, 1633.0, 1875.5, 
+5832.5, 4014.0, 1026.0, 1128.5, 2300.0, 2949.5, 2341.5, 2051.5, 4314.5, 3855.0, 
+5601.0, 2750.0, 1432.5, 1400.5, 1584.0, 1857.0, 1361.0, 1116.0, 2787.0, 2308.0, 
+2939.5, 2657.0, 647.0, 587.5, 843.5, 1696.5, 824.5, 1539.5, 2348.0, 2598.0, 
+3245.0, 2586.0, 1055.0, 1352.5, 1062.0, 1365.0, 2039.5, 1216.0, 2550.5, 1990.5, 
+7235.5, 5676.0, 3136.0, 4110.0, 3556.0, 5026.0, 3086.5, 2912.5, 6845.5, 5438.5, 
+3663.5, 3049.5, 1184.0, 1175.5, 1087.5, 1323.0, 1618.5, 1058.5, 2830.0, 2852.5, 
+6247.0, 3409.5, 876.5, 979.0, 1576.0, 2254.5, 2513.5, 1825.5, 4352.5, 2755.5, 
+4849.0, 4147.5, 1269.5, 1746.5, 1716.5, 2307.5, 2643.5, 1999.0, 3141.0, 2828.0, 
+2217.5, 2144.5, 580.5, 517.5, 884.5, 1507.5, 699.5, 1038.0, 1448.5, 2064.5, 
+2623.5, 2982.0, 1116.5, 1606.5, 1303.5, 2302.0, 2388.5, 1347.5, 3095.5, 3015.0, 
+4352.5, 4390.5, 1543.5, 1337.0, 1809.5, 2790.5, 2441.0, 1707.0, 4030.0, 2966.5, 
+cy3.getPatients(): 10
+NORMALIZED data for patient starting in column: 0
+Entering IRN
+cy3.dimensions: bio: 22, pat: 10
+cy5.dimensions: bio: 22, pat: 10
+Normalizing patient: 0
+meanRatio1 -- cy3_M1  : 0.4416501857082787
+MeanRatio2: cy3_M2: 0.6807281877127818, 
+NORMALIZED data for patient starting in column: 2
+Entering IRN
+cy3.dimensions: bio: 22, pat: 10
+cy5.dimensions: bio: 22, pat: 10
+Normalizing patient: 1
+meanRatio1 -- cy3_M1  : 0.44565218652822247
+MeanRatio2: cy3_M2: 0.4947340548278289, 
+NORMALIZED data for patient starting in column: 4
+Entering IRN
+cy3.dimensions: bio: 22, pat: 10
+cy5.dimensions: bio: 22, pat: 10
+Normalizing patient: 2
+meanRatio1 -- cy3_M1  : 0.750745667509062
+MeanRatio2: cy3_M2: 0.43368619293414984, 
+NORMALIZED data for patient starting in column: 6
+Entering IRN
+cy3.dimensions: bio: 22, pat: 10
+cy5.dimensions: bio: 22, pat: 10
+Normalizing patient: 3
+meanRatio1 -- cy3_M1  : 0.6664759325313316
+MeanRatio2: cy3_M2: 0.9166222507387688, 
+NORMALIZED data for patient starting in column: 8
+Entering IRN
+cy3.dimensions: bio: 22, pat: 10
+cy5.dimensions: bio: 22, pat: 10
+Normalizing patient: 4
+meanRatio1 -- cy3_M1  : 0.5665895776502056
+MeanRatio2: cy3_M2: 0.5495234280860385, 
+normalized_data.length: 5
+normalized_data[0].length: 22
+normalized_data[0][0].length: 4
+Paired T-Test -- function
+Entering logRatio --  function
+data.length: 5, data[0].length: 22, data[0][0].length: 4
+pairedTTest  --  function
+res.length = 5
+res.length[0] = 22
+res.length[0][0] = 2
+d[x2] 0.2757967817411411 res[x2][w][0] -0.05102478123939 res[x2][w][1] -0.32682156298053106
+d[x2] 0.7065080531713116 res[x2][w][0] 0.26604474545587115 res[x2][w][1] -0.44046330771544046
+d[x2] 0.05143399303615165 res[x2][w][0] 0.367171574227144 res[x2][w][1] 0.3157375811909924
+d[x2] -0.06311592266725774 res[x2][w][0] 0.7329547155064157 res[x2][w][1] 0.7960706381736734
+d[x2] 0.24883353894664886 res[x2][w][0] 0.40024028646259535 res[x2][w][1] 0.1514067475159465
+sum 1.2194564442279956
+RES.Length: 5List Size: 5
+d[x2] -0.8025300855010539 res[x2][w][0] -0.3080901106858446 res[x2][w][1] 0.4944399748152093
+d[x2] -1.0306172425426654 res[x2][w][0] -0.5350154994443547 res[x2][w][1] 0.49560174309831084
+d[x2] -0.5194457690525901 res[x2][w][0] -0.35901512108805805 res[x2][w][1] 0.16043064796453202
+d[x2] -0.7094551676433662 res[x2][w][0] -0.09019843312233325 res[x2][w][1] 0.619256734521033
+d[x2] -1.2951105063939243 res[x2][w][0] -0.8982791908906239 res[x2][w][1] 0.39683131550330036
+sum -4.3571587711336
+RES.Length: 5List Size: 5
+d[x2] -0.22847306615860008 res[x2][w][0] 0.15164953676613624 res[x2][w][1] 0.3801226029247363
+d[x2] -0.06285527658089984 res[x2][w][0] 0.03732054860317913 res[x2][w][1] 0.10017582518407897
+d[x2] 0.18057185658473007 res[x2][w][0] 0.11296178414385534 res[x2][w][1] -0.06761007244087475
+d[x2] -0.0324918027316104 res[x2][w][0] -0.19368124501883374 res[x2][w][1] -0.16118944228722334
+d[x2] 0.024794718190092248 res[x2][w][0] 0.02513355533706894 res[x2][w][1] 3.3883714697669284E-4
+sum -0.11845357069628801
+RES.Length: 5List Size: 5
+d[x2] 0.13652801472348025 res[x2][w][0] 0.19147296198974523 res[x2][w][1] 0.05494494726626498
+d[x2] 0.33853108150912853 res[x2][w][0] 0.23419443906670523 res[x2][w][1] -0.10433664244242331
+d[x2] 0.4076536398207296 res[x2][w][0] 0.12114007446992202 res[x2][w][1] -0.2865135653508076
+d[x2] -0.00809075252268654 res[x2][w][0] -0.25955877602687805 res[x2][w][1] -0.2514680235041915
+d[x2] 0.25783186797536173 res[x2][w][0] -0.0012684030364631988 res[x2][w][1] -0.2591002710118249
+sum 1.1324538515060136
+RES.Length: 5List Size: 5
+d[x2] -0.47405567260701675 res[x2][w][0] -0.2673224000896023 res[x2][w][1] 0.2067332725174145
+d[x2] 0.02665787169280373 res[x2][w][0] -0.18951458177682734 res[x2][w][1] -0.21617245346963107
+d[x2] -0.264785605857188 res[x2][w][0] -0.15025096436271837 res[x2][w][1] 0.11453464149446962
+d[x2] -0.13665384784614723 res[x2][w][0] -0.148456942391627 res[x2][w][1] -0.011803094545479747
+d[x2] -0.06522508466501713 res[x2][w][0] -0.0153241400156902 res[x2][w][1] 0.04990094464932692
+sum -0.9140623392825653
+RES.Length: 5List Size: 5
+d[x2] -0.2526736073014446 res[x2][w][0] 0.018542600552755764 res[x2][w][1] 0.27121620785420036
+d[x2] -0.11741333246704799 res[x2][w][0] 0.02075406413156133 res[x2][w][1] 0.13816739659860933
+d[x2] 0.24792103333178048 res[x2][w][0] 0.07222128061254143 res[x2][w][1] -0.17569975271923904
+d[x2] -0.448858504894294 res[x2][w][0] -0.3481273041988789 res[x2][w][1] 0.10073120069541512
+d[x2] -0.2994048162291303 res[x2][w][0] -0.31775004887248637 res[x2][w][1] -0.018345232643356073
+sum -0.8704292275601364
+RES.Length: 5List Size: 5
+d[x2] -0.08711100802271299 res[x2][w][0] 0.20228565745904975 res[x2][w][1] 0.28939666548176274
+d[x2] -0.13238845744269317 res[x2][w][0] 0.05677508458662266 res[x2][w][1] 0.18916354202931582
+d[x2] 0.0958510923785234 res[x2][w][0] -0.008987135993416577 res[x2][w][1] -0.10483822837193998
+d[x2] -0.07836010635581986 res[x2][w][0] -0.3426653420209888 res[x2][w][1] -0.26430523566516895
+d[x2] -0.14317294847500955 res[x2][w][0] -0.2940665164433895 res[x2][w][1] -0.15089356796837994
+sum -0.34518142791771217
+RES.Length: 5List Size: 5
+d[x2] -0.13261188516683084 res[x2][w][0] 0.15065699212841901 res[x2][w][1] 0.28326887729524985
+d[x2] -0.42386215756192025 res[x2][w][0] -0.05671268907367901 res[x2][w][1] 0.36714946848824126
+d[x2] -0.05235249191027616 res[x2][w][0] -0.09845545166689165 res[x2][w][1] -0.04610295975661549
+d[x2] -0.2597431370033803 res[x2][w][0] -0.28305752871542306 res[x2][w][1] -0.023314391712042755
+d[x2] -0.01117206795400641 res[x2][w][0] -0.07301791034816896 res[x2][w][1] -0.06184584239416255
+sum -0.879741739596414
+RES.Length: 5List Size: 5
+d[x2] -0.9204989021904662 res[x2][w][0] -0.3468530727439742 res[x2][w][1] 0.573645829446492
+d[x2] -1.0305169700712518 res[x2][w][0] -0.5149751083709218 res[x2][w][1] 0.5155418617003301
+d[x2] -0.08574613849243416 res[x2][w][0] -0.1731094989329709 res[x2][w][1] -0.08736336044053673
+d[x2] -0.6464304156189856 res[x2][w][0] -0.003932002109963173 res[x2][w][1] 0.6424984135090225
+d[x2] -0.9506253472623565 res[x2][w][0] -0.6946042263240841 res[x2][w][1] 0.25602112093827234
+sum -3.633817773635494
+RES.Length: 5List Size: 5
+d[x2] 0.8491247091461223 res[x2][w][0] 0.6669316595479218 res[x2][w][1] -0.18219304959820043
+d[x2] 0.7740319972162415 res[x2][w][0] 0.4737561628325437 res[x2][w][1] -0.30027583438369776
+d[x2] 0.9212664163837705 res[x2][w][0] 0.3796267458443593 res[x2][w][1] -0.5416396705394112
+d[x2] 0.5750560873934754 res[x2][w][0] 0.0803288498112959 res[x2][w][1] -0.4947272375821795
+d[x2] 0.9442505005971199 res[x2][w][0] 0.43705452368380227 res[x2][w][1] -0.5071959769133176
+sum 4.063729710736729
+RES.Length: 5List Size: 5
+d[x2] 0.8835045937950633 res[x2][w][0] 0.04261692905625449 res[x2][w][1] -0.8408876647388088
+d[x2] -0.16349541794843755 res[x2][w][0] -0.36848424360204435 res[x2][w][1] -0.2049888256536068
+d[x2] -0.3861727461352543 res[x2][w][0] -0.2637670755177091 res[x2][w][1] 0.12240567061754523
+d[x2] -0.11839072419555338 res[x2][w][0] 0.04403069110061664 res[x2][w][1] 0.16242141529617002
+d[x2] -0.07979285392620275 res[x2][w][0] 0.23939486131061602 res[x2][w][1] 0.31918771523681877
+sum 0.13565285158961526
+RES.Length: 5List Size: 5
+d[x2] 0.44936150740073116 res[x2][w][0] -0.035533586521286055 res[x2][w][1] -0.48489509392201724
+d[x2] 0.05069107384230833 res[x2][w][0] 0.026461754955104652 res[x2][w][1] -0.02422931888720368
+d[x2] 0.026157612824645793 res[x2][w][0] -0.06874513583161809 res[x2][w][1] -0.09490274865626389
+d[x2] 0.08682888296717162 res[x2][w][0] -0.14939025729457767 res[x2][w][1] -0.23621914026174928
+d[x2] 0.11885799321234644 res[x2][w][0] 0.0026347478807073202 res[x2][w][1] -0.11622324533163912
+sum 0.7318970702472034
+RES.Length: 5List Size: 5
+d[x2] -0.7659613451144643 res[x2][w][0] -0.5173890586508589 res[x2][w][1] 0.24857228646360544
+d[x2] -1.3523357971940597 res[x2][w][0] -0.8385591008342425 res[x2][w][1] 0.5137766963598174
+d[x2] -1.1716314557105498 res[x2][w][0] -0.7283908330357554 res[x2][w][1] 0.4432406226747944
+d[x2] -0.3881891098678768 res[x2][w][0] -0.2706377967878724 res[x2][w][1] 0.11755131308000435
+d[x2] -0.553748449834367 res[x2][w][0] -0.20569791447504715 res[x2][w][1] 0.3480505353593199
+sum -4.231866157721318
+RES.Length: 5List Size: 5
+d[x2] 0.4744136721485366 res[x2][w][0] -0.19427872151362188 res[x2][w][1] -0.6686923936621585
+d[x2] 0.9277802825123082 res[x2][w][0] 0.2773563648383419 res[x2][w][1] -0.6504239176739662
+d[x2] 0.020827798929712427 res[x2][w][0] 0.5047210494293236 res[x2][w][1] 0.4838932504996112
+d[x2] 0.15798030924882578 res[x2][w][0] 0.9644136253247274 res[x2][w][1] 0.8064333160759016
+d[x2] 0.4049936175828765 res[x2][w][0] 0.4367766123807592 res[x2][w][1] 0.0317829947978827
+sum 1.9859956804222594
+RES.Length: 5List Size: 5
+d[x2] -0.06184590179357616 res[x2][w][0] 0.13694990926972614 res[x2][w][1] 0.1987958110633023
+d[x2] 0.5395611833922347 res[x2][w][0] 0.3277315753241837 res[x2][w][1] -0.21182960806805096
+d[x2] 0.3110606401331439 res[x2][w][0] 0.0751299660400692 res[x2][w][1] -0.23593067409307467
+d[x2] -0.018961012118412723 res[x2][w][0] -0.3281770659811788 res[x2][w][1] -0.30921605386276607
+d[x2] 0.32367891659082904 res[x2][w][0] 0.03629527569469368 res[x2][w][1] -0.2873836408961354
+sum 1.0934938262042189
+RES.Length: 5List Size: 5
+d[x2] -1.1834103812882182 res[x2][w][0] -0.49855901670539465 res[x2][w][1] 0.6848513645828235
+d[x2] -0.4450276092568541 res[x2][w][0] -0.224532828152584 res[x2][w][1] 0.2204947811042701
+d[x2] -0.6764449812136499 res[x2][w][0] -0.3361544904561337 res[x2][w][1] 0.3402904907575162
+d[x2] -0.7591308700637329 res[x2][w][0] -0.37133411442798386 res[x2][w][1] 0.387796755635749
+d[x2] -1.181419057258202 res[x2][w][0] -0.6966569143112766 res[x2][w][1] 0.4847621429469254
+sum -4.245432899080657
+RES.Length: 5List Size: 5
+d[x2] -0.44663877189399204 res[x2][w][0] -0.033615545187439116 res[x2][w][1] 0.4130232267065529
+d[x2] -0.3559800882013404 res[x2][w][0] -0.36443881207974266 res[x2][w][1] -0.008458723878402241
+d[x2] -0.09745355056902358 res[x2][w][0] -0.15458262583825383 res[x2][w][1] -0.05712907526923025
+d[x2] 0.06640339201154608 res[x2][w][0] -0.20870867139446844 res[x2][w][1] -0.2751120634060145
+d[x2] 0.0011485620140847114 res[x2][w][0] 0.0828772530761216 res[x2][w][1] 0.08172869106203688
+sum -0.8325204566387252
+RES.Length: 5List Size: 5
+d[x2] 0.21052408218937074 res[x2][w][0] -0.3147414089114196 res[x2][w][1] -0.5252654911007903
+d[x2] 0.3744466127108217 res[x2][w][0] 0.18819887974972513 res[x2][w][1] -0.18624773296109653
+d[x2] 0.22358273083671865 res[x2][w][0] 0.09761817717800801 res[x2][w][1] -0.12596455365871062
+d[x2] 0.04488609826601242 res[x2][w][0] -0.2891878670802289 res[x2][w][1] -0.33407396534624134
+d[x2] 0.2831641565472267 res[x2][w][0] -0.07735897287226373 res[x2][w][1] -0.36052312941949044
+sum 1.1366036805501503
+RES.Length: 5List Size: 5
+d[x2] -0.1726730190862102 res[x2][w][0] -0.2598513869708655 res[x2][w][1] -0.08717836788465534
+d[x2] 0.14558463071002084 res[x2][w][0] 0.18098536883316457 res[x2][w][1] 0.035400738123143725
+d[x2] 0.3254799010906735 res[x2][w][0] 0.12449492041547203 res[x2][w][1] -0.20098498067520146
+d[x2] 0.10827506697481523 res[x2][w][0] -0.22809618803272966 res[x2][w][1] -0.3363712550075449
+d[x2] 0.28144616239944076 res[x2][w][0] 0.1079375402713136 res[x2][w][1] -0.17350862212812715
+sum 0.6881127420887402
+RES.Length: 5List Size: 5
+d[x2] -0.3047263277690817 res[x2][w][0] 0.1985843978857722 res[x2][w][1] 0.5033107256548539
+d[x2] 0.11357150868049984 res[x2][w][0] 0.30225983538301526 res[x2][w][1] 0.18868832670251542
+d[x2] -0.8323520511370666 res[x2][w][0] -0.02290145387670068 res[x2][w][1] 0.8094505972603658
+d[x2] -0.0032295770268934154 res[x2][w][0] 0.5585735693812509 res[x2][w][1] 0.5618031464081443
+d[x2] 0.06204869657028039 res[x2][w][0] 0.5535162106217171 res[x2][w][1] 0.4914675140514367
+sum -0.9646877506822613
+RES.Length: 5List Size: 5
+d[x2] 0.00117927682550506 res[x2][w][0] 0.264175020944725 res[x2][w][1] 0.26299574411921994
+d[x2] -0.11736732918136981 res[x2][w][0] 0.11103070500787175 res[x2][w][1] 0.22839803418924157
+d[x2] -0.08764935679729523 res[x2][w][0] -0.06501241809804227 res[x2][w][1] 0.02263693869925296
+d[x2] -0.14375754749391717 res[x2][w][0] -0.40381920424214457 res[x2][w][1] -0.2600616567482274
+d[x2] 0.1614826293515469 res[x2][w][0] 0.05227461554329939 res[x2][w][1] -0.10920801380824749
+sum -0.1861123272955303
+RES.Length: 5List Size: 5
+d[x2] -0.39236408519355837 res[x2][w][0] -0.06018640207883017 res[x2][w][1] 0.3321776831147282
+d[x2] -1.097717577495775 res[x2][w][0] -0.6447134035718308 res[x2][w][1] 0.4530041739239442
+d[x2] -0.2788038911468436 res[x2][w][0] -0.1810520300371641 res[x2][w][1] 0.0977518611096795
+d[x2] -0.5971692992247565 res[x2][w][0] -0.19398692720207902 res[x2][w][1] 0.4031823720226775
+d[x2] -0.8219698311730093 res[x2][w][0] -0.5933448005586591 res[x2][w][1] 0.22862503061435016
+sum -3.188024684233943
+RES.Length: 5List Size: 5
+1. a disintegrin and metalloproteinase domain 9 (meltrin gamma), 0.05500478745566449
+Entering logRatio --  function
+data.length: 5, data[0].length: 22, data[0][0].length: 4
+Local elimination using 16 worker threads
+---------------------------Start of Antigen List---------------------------
+
+Thread[#51,name,5,main]
+Thread[#61,name,5,main]
+Thread[#59,name,5,main]
+Thread[#55,name,5,main]
+Thread[#56,name,5,main]
+Thread[#62,name,5,main]
+Thread[#57,name,5,main]
+Thread[#54,name,5,main]
+Thread[#58,name,5,main]
+Thread[#63,name,5,main]
+Thread[#52,name,5,main]
+Thread[#64,name,5,main]
+Thread[#53,name,5,main]
+Thread[#60,name,5,main]
+Thread[#65,name,5,main]
+Thread[#66,name,5,main]
+---Registering Weka Editors---
+Trying to add database driver (JDBC): RmiJdbc.RJDriver - Error, not in CLASSPATH?
+Trying to add database driver (JDBC): jdbc.idbDriver - Error, not in CLASSPATH?
+Trying to add database driver (JDBC): org.gjt.mm.mysql.Driver - Error, not in CLASSPATH?
+Trying to add database driver (JDBC): com.mckoi.JDBCDriver - Error, not in CLASSPATH?
+Trying to add database driver (JDBC): org.hsqldb.jdbcDriver - Error, not in CLASSPATH?
+Thread[#80,name,5,main]
+Thread[#81,name,5,main]
+Thread[#82,name,5,main]
+Thread[#83,name,5,main]
+Thread[#84,name,5,main]
+Thread[#85,name,5,main]
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+
+
+
+
+
+Position: 5 error: 1.0
+
+
+
+
+
+Position: 6 error: 1.0
+
+
+
+
+
+Position: 7 error: 1.0
+
+
+
+
+
+Position: 8 error: 1.0
+
+
+
+
+
+Position: 9 error: 1.0
+
+
+
+
+
+Position: 10 error: 1.0
+
+
+
+
+
+Position: 11 error: 1.0
+
+
+
+
+
+Position: 12 error: 1.0
+
+
+
+
+
+Position: 13 error: 1.0
+
+
+
+
+
+Position: 14 error: 1.0
+
+
+
+
+
+Position: 15 error: 1.0
+
+
+
+
+
+Position: 16 error: 1.0
+
+
+
+
+
+Position: 17 error: 1.0
+
+
+
+
+
+Position: 18 error: 1.0
+
+
+
+
+
+Position: 19 error: 1.0
+
+
+
+
+
+Position: 20 error: 1.0
+
+
+
+
+
+Position: 21 error: 1.0
+
+
+
+
+
+Position: 22 error: 1.0
+---------------------------Start of Antigen List---------------------------
+
+Index: 1 Antigen: glutamate receptor interacting protein 1 Error: 1.0
+Thread[#86,name,5,main]
+Thread[#87,name,5,main]
+Thread[#88,name,5,main]
+Thread[#90,name,5,main]
+Thread[#89,name,5,main]
+Thread[#91,name,5,main]
+Thread[#92,name,5,main]
+Thread[#93,name,5,main]
+Thread[#94,name,5,main]
+Thread[#95,name,5,main]
+Thread[#96,name,5,main]
+Thread[#97,name,5,main]
+Thread[#98,name,5,main]
+Thread[#99,name,5,main]
+Thread[#100,name,5,main]
+Thread[#101,name,5,main]
+Thread[#102,name,5,main]
+Thread[#103,name,5,main]
+Thread[#104,name,5,main]
+Thread[#105,name,5,main]
+Thread[#106,name,5,main]
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+
+
+
+
+
+Position: 5 error: 1.0
+
+
+
+
+
+Position: 6 error: 1.0
+
+
+
+
+
+Position: 7 error: 1.0
+
+
+
+
+
+Position: 8 error: 1.0
+
+
+
+
+
+Position: 9 error: 1.0
+
+
+
+
+
+Position: 10 error: 1.0
+
+
+
+
+
+Position: 11 error: 1.0
+
+
+
+
+
+Position: 12 error: 1.0
+
+
+
+
+
+Position: 13 error: 1.0
+
+
+
+
+
+Position: 14 error: 1.0
+
+
+
+
+
+Position: 15 error: 1.0
+
+
+
+
+
+Position: 16 error: 1.0
+
+
+
+
+
+Position: 17 error: 1.0
+
+
+
+
+
+Position: 18 error: 1.0
+
+
+
+
+
+Position: 19 error: 1.0
+
+
+
+
+
+Position: 20 error: 1.0
+
+
+
+
+
+Position: 21 error: 1.0
+---------------------------Start of Antigen List---------------------------
+
+Index: 2 Antigen: glutamate receptor interacting protein 1 Error: 1.0
+Index: 1 Antigen: lysosomal-associated membrane protein 1 Error: 1.0
+Thread[#107,name,5,main]
+Thread[#108,name,5,main]
+Thread[#109,name,5,main]
+Thread[#110,name,5,main]
+Thread[#111,name,5,main]
+Thread[#112,name,5,main]
+Thread[#113,name,5,main]
+Thread[#114,name,5,main]
+Thread[#115,name,5,main]
+Thread[#116,name,5,main]
+Thread[#117,name,5,main]
+Thread[#118,name,5,main]
+Thread[#119,name,5,main]
+Thread[#120,name,5,main]
+Thread[#121,name,5,main]
+Thread[#122,name,5,main]
+Thread[#123,name,5,main]
+Thread[#124,name,5,main]
+Thread[#125,name,5,main]
+Thread[#126,name,5,main]
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+
+
+
+
+
+Position: 5 error: 1.0
+
+
+
+
+
+Position: 6 error: 1.0
+
+
+
+
+
+Position: 7 error: 1.0
+
+
+
+
+
+Position: 8 error: 1.0
+
+
+
+
+
+Position: 9 error: 1.0
+
+
+
+
+
+Position: 10 error: 1.0
+
+
+
+
+
+Position: 11 error: 1.0
+
+
+
+
+
+Position: 12 error: 1.0
+
+
+
+
+
+Position: 13 error: 1.0
+
+
+
+
+
+Position: 14 error: 1.0
+
+
+
+
+
+Position: 15 error: 1.0
+
+
+
+
+
+Position: 16 error: 1.0
+
+
+
+
+
+Position: 17 error: 1.0
+
+
+
+
+
+Position: 18 error: 1.0
+
+
+
+
+
+Position: 19 error: 1.0
+
+
+
+
+
+Position: 20 error: 1.0
+---------------------------Start of Antigen List---------------------------
+
+Index: 3 Antigen: glutamate receptor interacting protein 1 Error: 1.0
+Index: 2 Antigen: lysosomal-associated membrane protein 1 Error: 1.0
+Index: 1 Antigen: CrmA Error: 1.0
+Thread[#127,name,5,main]
+Thread[#128,name,5,main]
+Thread[#129,name,5,main]
+Thread[#130,name,5,main]
+Thread[#131,name,5,main]
+Thread[#132,name,5,main]
+Thread[#133,name,5,main]
+Thread[#134,name,5,main]
+Thread[#135,name,5,main]
+Thread[#136,name,5,main]
+Thread[#137,name,5,main]
+Thread[#138,name,5,main]
+Thread[#139,name,5,main]
+Thread[#140,name,5,main]
+Thread[#141,name,5,main]
+Thread[#142,name,5,main]
+Thread[#143,name,5,main]
+Thread[#144,name,5,main]
+Thread[#145,name,5,main]
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+
+
+
+
+
+Position: 5 error: 1.0
+
+
+
+
+
+Position: 6 error: 1.0
+
+
+
+
+
+Position: 7 error: 1.0
+
+
+
+
+
+Position: 8 error: 1.0
+
+
+
+
+
+Position: 9 error: 1.0
+
+
+
+
+
+Position: 10 error: 1.0
+
+
+
+
+
+Position: 11 error: 1.0
+
+
+
+
+
+Position: 12 error: 1.0
+
+
+
+
+
+Position: 13 error: 1.0
+
+
+
+
+
+Position: 14 error: 1.0
+
+
+
+
+
+Position: 15 error: 1.0
+
+
+
+
+
+Position: 16 error: 1.0
+
+
+
+
+
+Position: 17 error: 1.0
+
+
+
+
+
+Position: 18 error: 1.0
+
+
+
+
+
+Position: 19 error: 1.0
+---------------------------Start of Antigen List---------------------------
+
+Index: 4 Antigen: glutamate receptor interacting protein 1 Error: 1.0
+Index: 3 Antigen: lysosomal-associated membrane protein 1 Error: 1.0
+Index: 2 Antigen: CrmA Error: 1.0
+Index: 1 Antigen: linker for activation of T cells Error: 1.0
+Thread[#146,name,5,main]
+Thread[#147,name,5,main]
+Thread[#148,name,5,main]
+Thread[#149,name,5,main]
+Thread[#150,name,5,main]
+Thread[#151,name,5,main]
+Thread[#152,name,5,main]
+Thread[#153,name,5,main]
+Thread[#154,name,5,main]
+Thread[#155,name,5,main]
+Thread[#156,name,5,main]
+Thread[#157,name,5,main]
+Thread[#158,name,5,main]
+Thread[#159,name,5,main]
+Thread[#160,name,5,main]
+Thread[#161,name,5,main]
+Thread[#162,name,5,main]
+Thread[#163,name,5,main]
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+
+
+
+
+
+Position: 5 error: 1.0
+
+
+
+
+
+Position: 6 error: 1.0
+
+
+
+
+
+Position: 7 error: 1.0
+
+
+
+
+
+Position: 8 error: 1.0
+
+
+
+
+
+Position: 9 error: 1.0
+
+
+
+
+
+Position: 10 error: 1.0
+
+
+
+
+
+Position: 11 error: 1.0
+
+
+
+
+
+Position: 12 error: 1.0
+
+
+
+
+
+Position: 13 error: 1.0
+
+
+
+
+
+Position: 14 error: 1.0
+
+
+
+
+
+Position: 15 error: 1.0
+
+
+
+
+
+Position: 16 error: 1.0
+
+
+
+
+
+Position: 17 error: 1.0
+
+
+
+
+
+Position: 18 error: 1.0
+---------------------------Start of Antigen List---------------------------
+
+Index: 5 Antigen: glutamate receptor interacting protein 1 Error: 1.0
+Index: 4 Antigen: lysosomal-associated membrane protein 1 Error: 1.0
+Index: 3 Antigen: CrmA Error: 1.0
+Index: 2 Antigen: linker for activation of T cells Error: 1.0
+Index: 1 Antigen: protein phosphatase 5 catalytic subunit Error: 1.0
+Thread[#164,name,5,main]
+Thread[#165,name,5,main]
+Thread[#166,name,5,main]
+Thread[#167,name,5,main]
+Thread[#168,name,5,main]
+Thread[#169,name,5,main]
+Thread[#171,name,5,main]
+Thread[#172,name,5,main]
+Thread[#170,name,5,main]
+Thread[#173,name,5,main]
+Thread[#174,name,5,main]
+Thread[#175,name,5,main]
+Thread[#176,name,5,main]
+Thread[#177,name,5,main]
+Thread[#178,name,5,main]
+Thread[#179,name,5,main]
+Thread[#180,name,5,main]
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+
+
+
+
+
+Position: 5 error: 1.0
+
+
+
+
+
+Position: 6 error: 1.0
+
+
+
+
+
+Position: 7 error: 1.0
+
+
+
+
+
+Position: 8 error: 1.0
+
+
+
+
+
+Position: 9 error: 1.0
+
+
+
+
+
+Position: 10 error: 1.0
+
+
+
+
+
+Position: 11 error: 1.0
+
+
+
+
+
+Position: 12 error: 1.0
+
+
+
+
+
+Position: 13 error: 1.0
+
+
+
+
+
+Position: 14 error: 1.0
+
+
+
+
+
+Position: 15 error: 1.0
+
+
+
+
+
+Position: 16 error: 1.0
+
+
+
+
+
+Position: 17 error: 1.0
+---------------------------Start of Antigen List---------------------------
+
+Index: 6 Antigen: glutamate receptor interacting protein 1 Error: 1.0
+Index: 5 Antigen: lysosomal-associated membrane protein 1 Error: 1.0
+Index: 4 Antigen: CrmA Error: 1.0
+Index: 3 Antigen: linker for activation of T cells Error: 1.0
+Index: 2 Antigen: protein phosphatase 5 catalytic subunit Error: 1.0
+Index: 1 Antigen: interleukin 12B (natural killer cell stimulatory factor 2 cytotoxic lymphocyte maturation factor 2 p40) Error: 1.0
+Thread[#181,name,5,main]
+Thread[#182,name,5,main]
+Thread[#183,name,5,main]
+Thread[#184,name,5,main]
+Thread[#185,name,5,main]
+Thread[#186,name,5,main]
+Thread[#187,name,5,main]
+Thread[#188,name,5,main]
+Thread[#189,name,5,main]
+Thread[#190,name,5,main]
+Thread[#191,name,5,main]
+Thread[#192,name,5,main]
+Thread[#194,name,5,main]
+Thread[#193,name,5,main]
+Thread[#195,name,5,main]
+Thread[#196,name,5,main]
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+
+
+
+
+
+Position: 5 error: 1.0
+
+
+
+
+
+Position: 6 error: 1.0
+
+
+
+
+
+Position: 7 error: 1.0
+
+
+
+
+
+Position: 8 error: 1.0
+
+
+
+
+
+Position: 9 error: 1.0
+
+
+
+
+
+Position: 10 error: 1.0
+
+
+
+
+
+Position: 11 error: 1.0
+
+
+
+
+
+Position: 12 error: 1.0
+
+
+
+
+
+Position: 13 error: 1.0
+
+
+
+
+
+Position: 14 error: 1.0
+
+
+
+
+
+Position: 15 error: 1.0
+
+
+
+
+
+Position: 16 error: 1.0
+---------------------------Start of Antigen List---------------------------
+
+Index: 7 Antigen: glutamate receptor interacting protein 1 Error: 1.0
+Index: 6 Antigen: lysosomal-associated membrane protein 1 Error: 1.0
+Index: 5 Antigen: CrmA Error: 1.0
+Index: 4 Antigen: linker for activation of T cells Error: 1.0
+Index: 3 Antigen: protein phosphatase 5 catalytic subunit Error: 1.0
+Index: 2 Antigen: interleukin 12B (natural killer cell stimulatory factor 2 cytotoxic lymphocyte maturation factor 2 p40) Error: 1.0
+Index: 1 Antigen: sorting nexin 1 Error: 1.0
+Thread[#197,name,5,main]
+Thread[#198,name,5,main]
+Thread[#199,name,5,main]
+Thread[#200,name,5,main]
+Thread[#201,name,5,main]
+Thread[#202,name,5,main]
+Thread[#203,name,5,main]
+Thread[#204,name,5,main]
+Thread[#205,name,5,main]
+Thread[#206,name,5,main]
+Thread[#207,name,5,main]
+Thread[#208,name,5,main]
+Thread[#209,name,5,main]
+Thread[#210,name,5,main]
+Thread[#211,name,5,main]
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+
+
+
+
+
+Position: 5 error: 1.0
+
+
+
+
+
+Position: 6 error: 1.0
+
+
+
+
+
+Position: 7 error: 1.0
+
+
+
+
+
+Position: 8 error: 1.0
+
+
+
+
+
+Position: 9 error: 1.0
+
+
+
+
+
+Position: 10 error: 1.0
+
+
+
+
+
+Position: 11 error: 1.0
+
+
+
+
+
+Position: 12 error: 1.0
+
+
+
+
+
+Position: 13 error: 1.0
+
+
+
+
+
+Position: 14 error: 1.0
+
+
+
+
+
+Position: 15 error: 1.0
+---------------------------Start of Antigen List---------------------------
+
+Index: 8 Antigen: glutamate receptor interacting protein 1 Error: 1.0
+Index: 7 Antigen: lysosomal-associated membrane protein 1 Error: 1.0
+Index: 6 Antigen: CrmA Error: 1.0
+Index: 5 Antigen: linker for activation of T cells Error: 1.0
+Index: 4 Antigen: protein phosphatase 5 catalytic subunit Error: 1.0
+Index: 3 Antigen: interleukin 12B (natural killer cell stimulatory factor 2 cytotoxic lymphocyte maturation factor 2 p40) Error: 1.0
+Index: 2 Antigen: sorting nexin 1 Error: 1.0
+Index: 1 Antigen: RAS p21 protein activator (GTPase activating protein) 1 Error: 1.0
+Thread[#212,name,5,main]
+Thread[#213,name,5,main]
+Thread[#214,name,5,main]
+Thread[#215,name,5,main]
+Thread[#216,name,5,main]
+Thread[#217,name,5,main]
+Thread[#218,name,5,main]
+Thread[#219,name,5,main]
+Thread[#220,name,5,main]
+Thread[#221,name,5,main]
+Thread[#222,name,5,main]
+Thread[#223,name,5,main]
+Thread[#224,name,5,main]
+Thread[#225,name,5,main]
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+
+
+
+
+
+Position: 5 error: 1.0
+
+
+
+
+
+Position: 6 error: 1.0
+
+
+
+
+
+Position: 7 error: 1.0
+
+
+
+
+
+Position: 8 error: 1.0
+
+
+
+
+
+Position: 9 error: 1.0
+
+
+
+
+
+Position: 10 error: 1.0
+
+
+
+
+
+Position: 11 error: 1.0
+
+
+
+
+
+Position: 12 error: 1.0
+
+
+
+
+
+Position: 13 error: 1.0
+
+
+
+
+
+Position: 14 error: 1.0
+---------------------------Start of Antigen List---------------------------
+
+Index: 9 Antigen: glutamate receptor interacting protein 1 Error: 1.0
+Index: 8 Antigen: lysosomal-associated membrane protein 1 Error: 1.0
+Index: 7 Antigen: CrmA Error: 1.0
+Index: 6 Antigen: linker for activation of T cells Error: 1.0
+Index: 5 Antigen: protein phosphatase 5 catalytic subunit Error: 1.0
+Index: 4 Antigen: interleukin 12B (natural killer cell stimulatory factor 2 cytotoxic lymphocyte maturation factor 2 p40) Error: 1.0
+Index: 3 Antigen: sorting nexin 1 Error: 1.0
+Index: 2 Antigen: RAS p21 protein activator (GTPase activating protein) 1 Error: 1.0
+Index: 1 Antigen: calnexin Error: 1.0
+Thread[#226,name,5,main]
+Thread[#227,name,5,main]
+Thread[#228,name,5,main]
+Thread[#229,name,5,main]
+Thread[#230,name,5,main]
+Thread[#231,name,5,main]
+Thread[#232,name,5,main]
+Thread[#233,name,5,main]
+Thread[#234,name,5,main]
+Thread[#235,name,5,main]
+Thread[#236,name,5,main]
+Thread[#237,name,5,main]
+Thread[#238,name,5,main]
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+
+
+
+
+
+Position: 5 error: 1.0
+
+
+
+
+
+Position: 6 error: 1.0
+
+
+
+
+
+Position: 7 error: 1.0
+
+
+
+
+
+Position: 8 error: 1.0
+
+
+
+
+
+Position: 9 error: 1.0
+
+
+
+
+
+Position: 10 error: 1.0
+
+
+
+
+
+Position: 11 error: 1.0
+
+
+
+
+
+Position: 12 error: 1.0
+
+
+
+
+
+Position: 13 error: 1.0
+---------------------------Start of Antigen List---------------------------
+
+Index: 10 Antigen: glutamate receptor interacting protein 1 Error: 1.0
+Index: 9 Antigen: lysosomal-associated membrane protein 1 Error: 1.0
+Index: 8 Antigen: CrmA Error: 1.0
+Index: 7 Antigen: linker for activation of T cells Error: 1.0
+Index: 6 Antigen: protein phosphatase 5 catalytic subunit Error: 1.0
+Index: 5 Antigen: interleukin 12B (natural killer cell stimulatory factor 2 cytotoxic lymphocyte maturation factor 2 p40) Error: 1.0
+Index: 4 Antigen: sorting nexin 1 Error: 1.0
+Index: 3 Antigen: RAS p21 protein activator (GTPase activating protein) 1 Error: 1.0
+Index: 2 Antigen: calnexin Error: 1.0
+Index: 1 Antigen: reversion-inducing-cysteine-rich protein with kazal motifs Error: 1.0
+Thread[#239,name,5,main]
+Thread[#240,name,5,main]
+Thread[#241,name,5,main]
+Thread[#242,name,5,main]
+Thread[#243,name,5,main]
+Thread[#244,name,5,main]
+Thread[#245,name,5,main]
+Thread[#246,name,5,main]
+Thread[#247,name,5,main]
+Thread[#248,name,5,main]
+Thread[#249,name,5,main]
+Thread[#250,name,5,main]
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+
+
+
+
+
+Position: 5 error: 1.0
+
+
+
+
+
+Position: 6 error: 1.0
+
+
+
+
+
+Position: 7 error: 1.0
+
+
+
+
+
+Position: 8 error: 1.0
+
+
+
+
+
+Position: 9 error: 1.0
+
+
+
+
+
+Position: 10 error: 1.0
+
+
+
+
+
+Position: 11 error: 1.0
+
+
+
+
+
+Position: 12 error: 1.0
+---------------------------Start of Antigen List---------------------------
+
+Index: 11 Antigen: glutamate receptor interacting protein 1 Error: 1.0
+Index: 10 Antigen: lysosomal-associated membrane protein 1 Error: 1.0
+Index: 9 Antigen: CrmA Error: 1.0
+Index: 8 Antigen: linker for activation of T cells Error: 1.0
+Index: 7 Antigen: protein phosphatase 5 catalytic subunit Error: 1.0
+Index: 6 Antigen: interleukin 12B (natural killer cell stimulatory factor 2 cytotoxic lymphocyte maturation factor 2 p40) Error: 1.0
+Index: 5 Antigen: sorting nexin 1 Error: 1.0
+Index: 4 Antigen: RAS p21 protein activator (GTPase activating protein) 1 Error: 1.0
+Index: 3 Antigen: calnexin Error: 1.0
+Index: 2 Antigen: reversion-inducing-cysteine-rich protein with kazal motifs Error: 1.0
+Index: 1 Antigen: a disintegrin and metalloproteinase domain 9 (meltrin gamma) Error: 1.0
+Thread[#251,name,5,main]
+Thread[#252,name,5,main]
+Thread[#253,name,5,main]
+Thread[#254,name,5,main]
+Thread[#255,name,5,main]
+Thread[#257,name,5,main]
+Thread[#258,name,5,main]
+Thread[#256,name,5,main]
+Thread[#259,name,5,main]
+Thread[#260,name,5,main]
+Thread[#261,name,5,main]
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+
+
+
+
+
+Position: 5 error: 1.0
+
+
+
+
+
+Position: 6 error: 1.0
+
+
+
+
+
+Position: 7 error: 1.0
+
+
+
+
+
+Position: 8 error: 1.0
+
+
+
+
+
+Position: 9 error: 1.0
+
+
+
+
+
+Position: 10 error: 1.0
+
+
+
+
+
+Position: 11 error: 1.0
+---------------------------Start of Antigen List---------------------------
+
+Index: 12 Antigen: glutamate receptor interacting protein 1 Error: 1.0
+Index: 11 Antigen: lysosomal-associated membrane protein 1 Error: 1.0
+Index: 10 Antigen: CrmA Error: 1.0
+Index: 9 Antigen: linker for activation of T cells Error: 1.0
+Index: 8 Antigen: protein phosphatase 5 catalytic subunit Error: 1.0
+Index: 7 Antigen: interleukin 12B (natural killer cell stimulatory factor 2 cytotoxic lymphocyte maturation factor 2 p40) Error: 1.0
+Index: 6 Antigen: sorting nexin 1 Error: 1.0
+Index: 5 Antigen: RAS p21 protein activator (GTPase activating protein) 1 Error: 1.0
+Index: 4 Antigen: calnexin Error: 1.0
+Index: 3 Antigen: reversion-inducing-cysteine-rich protein with kazal motifs Error: 1.0
+Index: 2 Antigen: a disintegrin and metalloproteinase domain 9 (meltrin gamma) Error: 1.0
+Index: 1 Antigen: ribosomal protein S6 kinase 90kDa polypeptide 1 Error: 1.0
+Thread[#262,name,5,main]
+Thread[#263,name,5,main]
+Thread[#264,name,5,main]
+Thread[#265,name,5,main]
+Thread[#266,name,5,main]
+Thread[#267,name,5,main]
+Thread[#268,name,5,main]
+Thread[#269,name,5,main]
+Thread[#270,name,5,main]
+Thread[#271,name,5,main]
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+
+
+
+
+
+Position: 5 error: 1.0
+
+
+
+
+
+Position: 6 error: 1.0
+
+
+
+
+
+Position: 7 error: 1.0
+
+
+
+
+
+Position: 8 error: 1.0
+
+
+
+
+
+Position: 9 error: 1.0
+
+
+
+
+
+Position: 10 error: 1.0
+---------------------------Start of Antigen List---------------------------
+
+Index: 13 Antigen: glutamate receptor interacting protein 1 Error: 1.0
+Index: 12 Antigen: lysosomal-associated membrane protein 1 Error: 1.0
+Index: 11 Antigen: CrmA Error: 1.0
+Index: 10 Antigen: linker for activation of T cells Error: 1.0
+Index: 9 Antigen: protein phosphatase 5 catalytic subunit Error: 1.0
+Index: 8 Antigen: interleukin 12B (natural killer cell stimulatory factor 2 cytotoxic lymphocyte maturation factor 2 p40) Error: 1.0
+Index: 7 Antigen: sorting nexin 1 Error: 1.0
+Index: 6 Antigen: RAS p21 protein activator (GTPase activating protein) 1 Error: 1.0
+Index: 5 Antigen: calnexin Error: 1.0
+Index: 4 Antigen: reversion-inducing-cysteine-rich protein with kazal motifs Error: 1.0
+Index: 3 Antigen: a disintegrin and metalloproteinase domain 9 (meltrin gamma) Error: 1.0
+Index: 2 Antigen: ribosomal protein S6 kinase 90kDa polypeptide 1 Error: 1.0
+Index: 1 Antigen: caveolin 2 Error: 1.0
+Thread[#272,name,5,main]
+Thread[#273,name,5,main]
+Thread[#274,name,5,main]
+Thread[#275,name,5,main]
+Thread[#276,name,5,main]
+Thread[#277,name,5,main]
+Thread[#278,name,5,main]
+Thread[#279,name,5,main]
+Thread[#280,name,5,main]
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+
+
+
+
+
+Position: 5 error: 1.0
+
+
+
+
+
+Position: 6 error: 1.0
+
+
+
+
+
+Position: 7 error: 1.0
+
+
+
+
+
+Position: 8 error: 1.0
+
+
+
+
+
+Position: 9 error: 1.0
+---------------------------Start of Antigen List---------------------------
+
+Index: 14 Antigen: glutamate receptor interacting protein 1 Error: 1.0
+Index: 13 Antigen: lysosomal-associated membrane protein 1 Error: 1.0
+Index: 12 Antigen: CrmA Error: 1.0
+Index: 11 Antigen: linker for activation of T cells Error: 1.0
+Index: 10 Antigen: protein phosphatase 5 catalytic subunit Error: 1.0
+Index: 9 Antigen: interleukin 12B (natural killer cell stimulatory factor 2 cytotoxic lymphocyte maturation factor 2 p40) Error: 1.0
+Index: 8 Antigen: sorting nexin 1 Error: 1.0
+Index: 7 Antigen: RAS p21 protein activator (GTPase activating protein) 1 Error: 1.0
+Index: 6 Antigen: calnexin Error: 1.0
+Index: 5 Antigen: reversion-inducing-cysteine-rich protein with kazal motifs Error: 1.0
+Index: 4 Antigen: a disintegrin and metalloproteinase domain 9 (meltrin gamma) Error: 1.0
+Index: 3 Antigen: ribosomal protein S6 kinase 90kDa polypeptide 1 Error: 1.0
+Index: 2 Antigen: caveolin 2 Error: 1.0
+Index: 1 Antigen: CD3Z antigen zeta polypeptide (TiT3 complex) Error: 1.0
+Thread[#282,name,5,main]
+Thread[#281,name,5,main]
+Thread[#283,name,5,main]
+Thread[#284,name,5,main]
+Thread[#285,name,5,main]
+Thread[#286,name,5,main]
+Thread[#287,name,5,main]
+Thread[#288,name,5,main]
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+
+
+
+
+
+Position: 5 error: 1.0
+
+
+
+
+
+Position: 6 error: 1.0
+
+
+
+
+
+Position: 7 error: 1.0
+
+
+
+
+
+Position: 8 error: 1.0
+---------------------------Start of Antigen List---------------------------
+
+Index: 15 Antigen: glutamate receptor interacting protein 1 Error: 1.0
+Index: 14 Antigen: lysosomal-associated membrane protein 1 Error: 1.0
+Index: 13 Antigen: CrmA Error: 1.0
+Index: 12 Antigen: linker for activation of T cells Error: 1.0
+Index: 11 Antigen: protein phosphatase 5 catalytic subunit Error: 1.0
+Index: 10 Antigen: interleukin 12B (natural killer cell stimulatory factor 2 cytotoxic lymphocyte maturation factor 2 p40) Error: 1.0
+Index: 9 Antigen: sorting nexin 1 Error: 1.0
+Index: 8 Antigen: RAS p21 protein activator (GTPase activating protein) 1 Error: 1.0
+Index: 7 Antigen: calnexin Error: 1.0
+Index: 6 Antigen: reversion-inducing-cysteine-rich protein with kazal motifs Error: 1.0
+Index: 5 Antigen: a disintegrin and metalloproteinase domain 9 (meltrin gamma) Error: 1.0
+Index: 4 Antigen: ribosomal protein S6 kinase 90kDa polypeptide 1 Error: 1.0
+Index: 3 Antigen: caveolin 2 Error: 1.0
+Index: 2 Antigen: CD3Z antigen zeta polypeptide (TiT3 complex) Error: 1.0
+Index: 1 Antigen: eukaryotic translation initiation factor 4 gamma 1 Error: 1.0
+Thread[#289,name,5,main]
+Thread[#290,name,5,main]
+Thread[#291,name,5,main]
+Thread[#292,name,5,main]
+Thread[#293,name,5,main]
+Thread[#294,name,5,main]
+Thread[#295,name,5,main]
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+
+
+
+
+
+Position: 5 error: 1.0
+
+
+
+
+
+Position: 6 error: 1.0
+
+
+
+
+
+Position: 7 error: 1.0
+---------------------------Start of Antigen List---------------------------
+
+Index: 16 Antigen: glutamate receptor interacting protein 1 Error: 1.0
+Index: 15 Antigen: lysosomal-associated membrane protein 1 Error: 1.0
+Index: 14 Antigen: CrmA Error: 1.0
+Index: 13 Antigen: linker for activation of T cells Error: 1.0
+Index: 12 Antigen: protein phosphatase 5 catalytic subunit Error: 1.0
+Index: 11 Antigen: interleukin 12B (natural killer cell stimulatory factor 2 cytotoxic lymphocyte maturation factor 2 p40) Error: 1.0
+Index: 10 Antigen: sorting nexin 1 Error: 1.0
+Index: 9 Antigen: RAS p21 protein activator (GTPase activating protein) 1 Error: 1.0
+Index: 8 Antigen: calnexin Error: 1.0
+Index: 7 Antigen: reversion-inducing-cysteine-rich protein with kazal motifs Error: 1.0
+Index: 6 Antigen: a disintegrin and metalloproteinase domain 9 (meltrin gamma) Error: 1.0
+Index: 5 Antigen: ribosomal protein S6 kinase 90kDa polypeptide 1 Error: 1.0
+Index: 4 Antigen: caveolin 2 Error: 1.0
+Index: 3 Antigen: CD3Z antigen zeta polypeptide (TiT3 complex) Error: 1.0
+Index: 2 Antigen: eukaryotic translation initiation factor 4 gamma 1 Error: 1.0
+Index: 1 Antigen: hematopoietic cell-specific Lyn substrate 1 Error: 1.0
+Thread[#296,name,5,main]
+Thread[#297,name,5,main]
+Thread[#298,name,5,main]
+Thread[#299,name,5,main]
+Thread[#300,name,5,main]
+Thread[#301,name,5,main]
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+
+
+
+
+
+Position: 5 error: 1.0
+
+
+
+
+
+Position: 6 error: 1.0
+---------------------------Start of Antigen List---------------------------
+
+Index: 17 Antigen: glutamate receptor interacting protein 1 Error: 1.0
+Index: 16 Antigen: lysosomal-associated membrane protein 1 Error: 1.0
+Index: 15 Antigen: CrmA Error: 1.0
+Index: 14 Antigen: linker for activation of T cells Error: 1.0
+Index: 13 Antigen: protein phosphatase 5 catalytic subunit Error: 1.0
+Index: 12 Antigen: interleukin 12B (natural killer cell stimulatory factor 2 cytotoxic lymphocyte maturation factor 2 p40) Error: 1.0
+Index: 11 Antigen: sorting nexin 1 Error: 1.0
+Index: 10 Antigen: RAS p21 protein activator (GTPase activating protein) 1 Error: 1.0
+Index: 9 Antigen: calnexin Error: 1.0
+Index: 8 Antigen: reversion-inducing-cysteine-rich protein with kazal motifs Error: 1.0
+Index: 7 Antigen: a disintegrin and metalloproteinase domain 9 (meltrin gamma) Error: 1.0
+Index: 6 Antigen: ribosomal protein S6 kinase 90kDa polypeptide 1 Error: 1.0
+Index: 5 Antigen: caveolin 2 Error: 1.0
+Index: 4 Antigen: CD3Z antigen zeta polypeptide (TiT3 complex) Error: 1.0
+Index: 3 Antigen: eukaryotic translation initiation factor 4 gamma 1 Error: 1.0
+Index: 2 Antigen: hematopoietic cell-specific Lyn substrate 1 Error: 1.0
+Index: 1 Antigen: docking protein 1 62kDa (downstream of tyrosine kinase 1) Error: 1.0
+Thread[#302,name,5,main]
+Thread[#303,name,5,main]
+Thread[#304,name,5,main]
+Thread[#305,name,5,main]
+Thread[#306,name,5,main]
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+
+
+
+
+
+Position: 5 error: 1.0
+---------------------------Start of Antigen List---------------------------
+
+Index: 18 Antigen: glutamate receptor interacting protein 1 Error: 1.0
+Index: 17 Antigen: lysosomal-associated membrane protein 1 Error: 1.0
+Index: 16 Antigen: CrmA Error: 1.0
+Index: 15 Antigen: linker for activation of T cells Error: 1.0
+Index: 14 Antigen: protein phosphatase 5 catalytic subunit Error: 1.0
+Index: 13 Antigen: interleukin 12B (natural killer cell stimulatory factor 2 cytotoxic lymphocyte maturation factor 2 p40) Error: 1.0
+Index: 12 Antigen: sorting nexin 1 Error: 1.0
+Index: 11 Antigen: RAS p21 protein activator (GTPase activating protein) 1 Error: 1.0
+Index: 10 Antigen: calnexin Error: 1.0
+Index: 9 Antigen: reversion-inducing-cysteine-rich protein with kazal motifs Error: 1.0
+Index: 8 Antigen: a disintegrin and metalloproteinase domain 9 (meltrin gamma) Error: 1.0
+Index: 7 Antigen: ribosomal protein S6 kinase 90kDa polypeptide 1 Error: 1.0
+Index: 6 Antigen: caveolin 2 Error: 1.0
+Index: 5 Antigen: CD3Z antigen zeta polypeptide (TiT3 complex) Error: 1.0
+Index: 4 Antigen: eukaryotic translation initiation factor 4 gamma 1 Error: 1.0
+Index: 3 Antigen: hematopoietic cell-specific Lyn substrate 1 Error: 1.0
+Index: 2 Antigen: docking protein 1 62kDa (downstream of tyrosine kinase 1) Error: 1.0
+Index: 1 Antigen: kinesin family member 11 Error: 1.0
+Thread[#307,name,5,main]
+Thread[#308,name,5,main]
+Thread[#309,name,5,main]
+Thread[#310,name,5,main]
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+
+
+
+
+
+Position: 4 error: 1.0
+---------------------------Start of Antigen List---------------------------
+
+Index: 19 Antigen: glutamate receptor interacting protein 1 Error: 1.0
+Index: 18 Antigen: lysosomal-associated membrane protein 1 Error: 1.0
+Index: 17 Antigen: CrmA Error: 1.0
+Index: 16 Antigen: linker for activation of T cells Error: 1.0
+Index: 15 Antigen: protein phosphatase 5 catalytic subunit Error: 1.0
+Index: 14 Antigen: interleukin 12B (natural killer cell stimulatory factor 2 cytotoxic lymphocyte maturation factor 2 p40) Error: 1.0
+Index: 13 Antigen: sorting nexin 1 Error: 1.0
+Index: 12 Antigen: RAS p21 protein activator (GTPase activating protein) 1 Error: 1.0
+Index: 11 Antigen: calnexin Error: 1.0
+Index: 10 Antigen: reversion-inducing-cysteine-rich protein with kazal motifs Error: 1.0
+Index: 9 Antigen: a disintegrin and metalloproteinase domain 9 (meltrin gamma) Error: 1.0
+Index: 8 Antigen: ribosomal protein S6 kinase 90kDa polypeptide 1 Error: 1.0
+Index: 7 Antigen: caveolin 2 Error: 1.0
+Index: 6 Antigen: CD3Z antigen zeta polypeptide (TiT3 complex) Error: 1.0
+Index: 5 Antigen: eukaryotic translation initiation factor 4 gamma 1 Error: 1.0
+Index: 4 Antigen: hematopoietic cell-specific Lyn substrate 1 Error: 1.0
+Index: 3 Antigen: docking protein 1 62kDa (downstream of tyrosine kinase 1) Error: 1.0
+Index: 2 Antigen: kinesin family member 11 Error: 1.0
+Index: 1 Antigen: RAP1 GTPase activating protein 1 Error: 1.0
+Thread[#311,name,5,main]
+Thread[#312,name,5,main]
+Thread[#313,name,5,main]
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+
+
+
+
+
+Position: 3 error: 1.0
+---------------------------Start of Antigen List---------------------------
+
+Index: 20 Antigen: glutamate receptor interacting protein 1 Error: 1.0
+Index: 19 Antigen: lysosomal-associated membrane protein 1 Error: 1.0
+Index: 18 Antigen: CrmA Error: 1.0
+Index: 17 Antigen: linker for activation of T cells Error: 1.0
+Index: 16 Antigen: protein phosphatase 5 catalytic subunit Error: 1.0
+Index: 15 Antigen: interleukin 12B (natural killer cell stimulatory factor 2 cytotoxic lymphocyte maturation factor 2 p40) Error: 1.0
+Index: 14 Antigen: sorting nexin 1 Error: 1.0
+Index: 13 Antigen: RAS p21 protein activator (GTPase activating protein) 1 Error: 1.0
+Index: 12 Antigen: calnexin Error: 1.0
+Index: 11 Antigen: reversion-inducing-cysteine-rich protein with kazal motifs Error: 1.0
+Index: 10 Antigen: a disintegrin and metalloproteinase domain 9 (meltrin gamma) Error: 1.0
+Index: 9 Antigen: ribosomal protein S6 kinase 90kDa polypeptide 1 Error: 1.0
+Index: 8 Antigen: caveolin 2 Error: 1.0
+Index: 7 Antigen: CD3Z antigen zeta polypeptide (TiT3 complex) Error: 1.0
+Index: 6 Antigen: eukaryotic translation initiation factor 4 gamma 1 Error: 1.0
+Index: 5 Antigen: hematopoietic cell-specific Lyn substrate 1 Error: 1.0
+Index: 4 Antigen: docking protein 1 62kDa (downstream of tyrosine kinase 1) Error: 1.0
+Index: 3 Antigen: kinesin family member 11 Error: 1.0
+Index: 2 Antigen: RAP1 GTPase activating protein 1 Error: 1.0
+Index: 1 Antigen: early endosome antigen 1 162kD Error: 1.0
+Thread[#314,name,5,main]
+Thread[#315,name,5,main]
+
+
+
+
+
+Position: 1 error: 1.0
+
+
+
+
+
+Position: 2 error: 1.0
+---------------------------Start of Antigen List---------------------------
+
+Index: 21 Antigen: glutamate receptor interacting protein 1 Error: 1.0
+Index: 20 Antigen: lysosomal-associated membrane protein 1 Error: 1.0
+Index: 19 Antigen: CrmA Error: 1.0
+Index: 18 Antigen: linker for activation of T cells Error: 1.0
+Index: 17 Antigen: protein phosphatase 5 catalytic subunit Error: 1.0
+Index: 16 Antigen: interleukin 12B (natural killer cell stimulatory factor 2 cytotoxic lymphocyte maturation factor 2 p40) Error: 1.0
+Index: 15 Antigen: sorting nexin 1 Error: 1.0
+Index: 14 Antigen: RAS p21 protein activator (GTPase activating protein) 1 Error: 1.0
+Index: 13 Antigen: calnexin Error: 1.0
+Index: 12 Antigen: reversion-inducing-cysteine-rich protein with kazal motifs Error: 1.0
+Index: 11 Antigen: a disintegrin and metalloproteinase domain 9 (meltrin gamma) Error: 1.0
+Index: 10 Antigen: ribosomal protein S6 kinase 90kDa polypeptide 1 Error: 1.0
+Index: 9 Antigen: caveolin 2 Error: 1.0
+Index: 8 Antigen: CD3Z antigen zeta polypeptide (TiT3 complex) Error: 1.0
+Index: 7 Antigen: eukaryotic translation initiation factor 4 gamma 1 Error: 1.0
+Index: 6 Antigen: hematopoietic cell-specific Lyn substrate 1 Error: 1.0
+Index: 5 Antigen: docking protein 1 62kDa (downstream of tyrosine kinase 1) Error: 1.0
+Index: 4 Antigen: kinesin family member 11 Error: 1.0
+Index: 3 Antigen: RAP1 GTPase activating protein 1 Error: 1.0
+Index: 2 Antigen: early endosome antigen 1 162kD Error: 1.0
+Index: 1 Antigen: translin-associated factor X Error: 1.0
+---------------------------Start of Antigen List---------------------------
+
+Index: 21 Antigen: glutamate receptor interacting protein 1 Error: 1.0
+Index: 20 Antigen: lysosomal-associated membrane protein 1 Error: 1.0
+Index: 19 Antigen: CrmA Error: 1.0
+Index: 18 Antigen: linker for activation of T cells Error: 1.0
+Index: 17 Antigen: protein phosphatase 5 catalytic subunit Error: 1.0
+Index: 16 Antigen: interleukin 12B (natural killer cell stimulatory factor 2 cytotoxic lymphocyte maturation factor 2 p40) Error: 1.0
+Index: 15 Antigen: sorting nexin 1 Error: 1.0
+Index: 14 Antigen: RAS p21 protein activator (GTPase activating protein) 1 Error: 1.0
+Index: 13 Antigen: calnexin Error: 1.0
+Index: 12 Antigen: reversion-inducing-cysteine-rich protein with kazal motifs Error: 1.0
+Index: 11 Antigen: a disintegrin and metalloproteinase domain 9 (meltrin gamma) Error: 1.0
+Index: 10 Antigen: ribosomal protein S6 kinase 90kDa polypeptide 1 Error: 1.0
+Index: 9 Antigen: caveolin 2 Error: 1.0
+Index: 8 Antigen: CD3Z antigen zeta polypeptide (TiT3 complex) Error: 1.0
+Index: 7 Antigen: eukaryotic translation initiation factor 4 gamma 1 Error: 1.0
+Index: 6 Antigen: hematopoietic cell-specific Lyn substrate 1 Error: 1.0
+Index: 5 Antigen: docking protein 1 62kDa (downstream of tyrosine kinase 1) Error: 1.0
+Index: 4 Antigen: kinesin family member 11 Error: 1.0
+Index: 3 Antigen: RAP1 GTPase activating protein 1 Error: 1.0
+Index: 2 Antigen: early endosome antigen 1 162kD Error: 1.0
+Index: 1 Antigen: translin-associated factor X Error: 1.0
+FIVE PATIENT RUN COMPLETE

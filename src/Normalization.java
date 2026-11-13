@@ -304,6 +304,10 @@ public class Normalization {
 	public int[][] findControls(String[] cy3Id, String[] cy5Id, String positivelabel, String negativelabel){
 		// 2-dimensional array structured as follows
 		int[][] positiveControls = new int[2][2];
+		for (int[] channel : positiveControls) {
+			channel[0] = -1;
+			channel[1] = -1;
+		}
 		
 		for(int i = 0; i < cy3Id.length; i++)
 		{
@@ -333,13 +337,35 @@ public class Normalization {
 		int[][] controls = new int[2][2];
 		String[] cy3ID = cy3.getID();
 		String[] cy5ID = cy5.getID();
+		if (cy3ID == null || cy5ID == null)
+			throw new IllegalArgumentException("Load both ID lists before normalization");
 		
 		//find position of controls to be deleted
 		controls = findControls(cy3ID, cy5ID, poslabel, neglabel);
+		boolean anyControl = false;
+		boolean allControls = true;
+		for (int channel = 0; channel < 2; channel++) {
+			for (int control = 0; control < 2; control++) {
+				anyControl |= controls[channel][control] >= 0;
+				allControls &= controls[channel][control] >= 0;
+			}
+		}
+		if (!anyControl) {
+			System.out.println("Named control labels are absent from the ID lists; retaining all data rows.");
+			return;
+		}
+		if (!allControls)
+			throw new IllegalArgumentException("Control labels must be present in both Cy3 and Cy5 ID lists: "
+					+ poslabel + " and " + neglabel);
+		if (controls[0][0] == controls[0][1] || controls[1][0] == controls[1][1])
+			throw new IllegalArgumentException("Positive and negative control labels must identify different rows");
+		if (controls[0][0] >= cy3.getData().length || controls[0][1] >= cy3.getData().length
+				|| controls[1][0] >= cy5.getData().length || controls[1][1] >= cy5.getData().length)
+			throw new IllegalArgumentException("Control ID rows do not align with the data rows");
 		
 		//temporary storage for new, shorter id list
-		String[] temp = new String[cy3ID.length - 1];
-		String[] temp2 = new String[cy5ID.length - 1];
+		String[] temp = new String[cy3ID.length - 2];
+		String[] temp2 = new String[cy5ID.length - 2];
 		//new list position
 		int position = 0;
 		
@@ -359,9 +385,9 @@ public class Normalization {
 		position = 0;
 		for(int j = 0; j < cy5ID.length; j++)
 		{
-			if(j == controls[0][0])
+			if(j == controls[1][0])
 				System.out.println("Found control " + cy5ID[j] + " at " + j);
-			else if(j == controls[0][1])
+			else if(j == controls[1][1])
 				System.out.println("Found control " + cy5ID[j] + " at " + j);
 			else
 			{
@@ -416,12 +442,12 @@ public class Normalization {
 		position = 0;
 		for(int i2 = 0; i2 < cy5data.length; i2++)
 		{
-			if(i2 == controls[0][0])
+			if(i2 == controls[1][0])
 			{
 				System.out.println("Found data control at " + i2);
 				cy5.setBioMarkers(cy5.getBioMarkers() - 1);
 			}
-			else if(i2 == controls[0][1])
+			else if(i2 == controls[1][1])
 			{
 				System.out.println("Found data control at " + i2);
 				cy5.setBioMarkers(cy5.getBioMarkers() - 1);

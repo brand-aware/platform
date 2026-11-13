@@ -1,8 +1,19 @@
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicLong;
 
 import weka.classifiers.Evaluation;
 import weka.classifiers.trees.RandomForest;
@@ -11,7 +22,6 @@ import weka.core.converters.ArffLoader;
 import weka.core.converters.CSVLoader;
 import weka.core.converters.ArffSaver;
 import weka.filters.unsupervised.attribute.NumericToNominal;
-import weka.filters.unsupervised.instance.RemovePercentage;
 
 public class BioMarkerSelection_Local {
 	
@@ -21,20 +31,27 @@ public class BioMarkerSelection_Local {
 	private double[] crossValidate;
 	private Antigens antList;
 	private int delete =0;
-	private long count=0;
-	private MultiThread[] threadList;
+	private static final AtomicLong count = new AtomicLong();
+	private static final int SYSTEM_PROCESSORS = CpuCapacity.systemProcessorCount();
+	private static final int FOLD_THREAD_LIMIT = CpuCapacity.threadLimit(SYSTEM_PROCESSORS, 80);
+	private static final int FOLD_THREAD_COUNT = Math.max(1,
+			Math.min(FOLD_THREAD_LIMIT, Integer.getInteger("evaluation.foldThreads", FOLD_THREAD_LIMIT)));
+	private static final ThreadPoolExecutor FOLD_EXECUTOR = new ThreadPoolExecutor(
+			FOLD_THREAD_COUNT, FOLD_THREAD_COUNT, 0L, TimeUnit.MILLISECONDS,
+			new LinkedBlockingQueue<Runnable>(), new java.util.concurrent.ThreadFactory() {
+				private final AtomicLong threadNumber = new AtomicLong();
+				public Thread newThread(Runnable task) {
+					Thread thread = new Thread(task, "cross-validation-fold-" + threadNumber.incrementAndGet());
+					thread.setDaemon(true);
+					return thread;
+				}
+			});
+
+	public static int getFoldThreadCount() { return FOLD_THREAD_COUNT; }
+	public static int getSystemProcessorCount() { return SYSTEM_PROCESSORS; }
+	public static int getActiveFoldThreadCount() { return FOLD_EXECUTOR.getActiveCount(); }
+	public static int getQueuedFoldTaskCount() { return FOLD_EXECUTOR.getQueue().size(); }
 	
-	private Properties properties;
-	
-	//Debug
-	private FileOutputStream fStreamBackwardElim;
-	private FileOutputStream fStreamCrossvalid;
-	private FileOutputStream fStreamCrossvalidDefault;
-	private FileOutputStream fStreamRandomForest;
-	private PrintStream pStreamBackwardElim;
-	private PrintStream pStreamCrossvalid;
-	private PrintStream pStreamCrossvalidDefault;
-	private PrintStream pStreamRandomForest;
 	
 	public BioMarkerSelection_Local(String[] idList, int[] test, int[] train)
 	{
@@ -43,29 +60,13 @@ public class BioMarkerSelection_Local {
 		testPatients = test;
 		trainPatients = train;
 		
-		//TODO: move to main
-		properties = new Properties();
 	}
 	
 	public BioMarkerSelection_Local()
 	{
 		//Empty constructor to work on remote systems
-		 try {
-			 fStreamBackwardElim = new FileOutputStream(new File("BackwardsElimination.txt"));
-			 fStreamCrossvalid = new FileOutputStream(new File("Crossvalid.txt"));			 
-			 fStreamCrossvalidDefault = new FileOutputStream(new File("CrossvalidDefault.txt"));
-			 fStreamRandomForest = new FileOutputStream(new File("RandomForest.txt"));
-			 pStreamBackwardElim= new PrintStream(fStreamBackwardElim);
-			 pStreamCrossvalid= new PrintStream(fStreamCrossvalid);
-			 pStreamCrossvalidDefault= new PrintStream(fStreamCrossvalidDefault);
-			 pStreamRandomForest= new PrintStream(fStreamRandomForest);
-			 
-		 } catch (FileNotFoundException e) {
-			System.err.println(e);
-			e.printStackTrace();
-		}
 	}
-	
+
 	public void setID(String[] idList)
 	{
 		ID = idList;
@@ -83,81 +84,86 @@ public class BioMarkerSelection_Local {
 	
 	public void backwardsElimination(double[][][] data)
 	{
-		if(properties.getDebug()){
-			pStreamBackwardElim.println("BackwardsElimination");
-		}
 		
 		int removePosition = 0;
-		double[][] formattedData;
 		int size = data[0].length - 1;
 		antList = new Antigens(size);
+		int workerCount = Math.max(1, Math.min(16, Integer.getInteger("local.workerThreads", 16)));
+		ExecutorService executor = Executors.newFixedThreadPool(workerCount);
+		System.out.println("Local elimination using " + workerCount + " worker threads");
 		
 		antList.print();
-		for(int x = 0; x < size; x++)
-		{
-			if(x == 0){
-				printMatrix(threeDtoTwoD(data), pStreamBackwardElim);
-			}
-			crossValidate = new double[data[0].length];
-			for(int y = 0; y < data[0].length; y++)
-			{
-				//cross validation of data
-				data = removeRowKeepLast(data, y);
-				
-				//Print out temporarialy removed row
-				System.out.print(x + "." + y +": temp removed row: ");
-				for(int z = 0; z < last.length; z++){
-					System.out.print(last[z] + ", ");
+		try {
+			for(int x = 0; x < size; x++)
+		  {
+				int remainingAntigens = data[0].length;
+				if (x == 0 || x % 5 == 0 || x == size - 1) {
+					System.out.println("Elimination progress: " + remainingAntigens
+							+ " antigens remain; " + Math.max(0, remainingAntigens - 1)
+							+ " still to remove (removal " + (x + 1) + " of " + size + ")");
 				}
-				System.out.println();
-
-				//Flatten data =p
-				formattedData = threeDtoTwoD(data);
-				
-				printMatrix(formattedData, pStreamBackwardElim);
-				printMatrix(formattedData, pStreamCrossvalid);
-				crossValidate[y] = crossValidate(formattedData, 5);
-				
-				pStreamCrossvalid.println("Position: "+ y +" Error: " + crossValidate[y]);
-				
-				data = addRow(data, last, y);
-				
-				printMatrix(threeDtoTwoD(data), pStreamBackwardElim);
-				
+			crossValidate = new double[data[0].length];
+			final double[][][] iterationData = data;
+			List<Callable<Double>> tasks = new ArrayList<Callable<Double>>();
+			for(int y = 0; y < iterationData[0].length; y++) {
+				final int candidate = y;
+				tasks.add(new Callable<Double>() {
+					public Double call() {
+						double[][][] candidateData = removeRowCopy(iterationData, candidate);
+						double[][] formattedData = threeDtoTwoD(candidateData);
+						return crossValidate(formattedData, 5);
+					}
+				});
+			}
+			try {
+				List<Future<Double>> results = executor.invokeAll(tasks);
+				for(int y = 0; y < results.size(); y++) {
+					crossValidate[y] = results.get(y).get();
+				}
+			} catch (InterruptedException e) {
+				Thread.currentThread().interrupt();
+				throw new IllegalStateException("Local elimination was interrupted", e);
+			} catch (ExecutionException e) {
+				throw new IllegalStateException("A local elimination worker failed", e.getCause());
 			}
 					
 			//calculate best candidate for removal in the crossValidate error set
 			removePosition = findBest(crossValidate);
-			pStreamBackwardElim.println("remove position: " + removePosition);
-			pStreamCrossvalid.println("remove position: " + removePosition);
-			pStreamCrossvalidDefault.println("remove position: " + removePosition);
-			pStreamRandomForest.println("remove position: " + removePosition);
 			//remove one antigen from the list
 			
 			data = removeRow(data, removePosition,crossValidate[removePosition]);
-			printMatrix(threeDtoTwoD(data), pStreamBackwardElim);
 			//test print 
 			for(int i = 0; i<crossValidate.length; i++)
 			{
 				System.out.println("\n\n\n\n\nPosition: " + (i + 1) + " error: "+crossValidate[i]);
-				pStreamBackwardElim.println("\n\n\n\n\nPosition: " + (i + 1) + " error: "+crossValidate[i]);
-				pStreamCrossvalid.println("\n\n\n\n\nPosition: " + (i + 1) + " error: "+crossValidate[i]);
-				pStreamCrossvalidDefault.println("\n\n\n\n\nPosition: " + (i + 1) + " error: "+crossValidate[i]);
-				pStreamRandomForest.println("\n\n\n\n\nPosition: " + (i + 1) + " error: "+crossValidate[i]);
 			}
 			antList.print();
 			
+		  }
+		  antList.print();
+		} finally {
+			executor.shutdownNow();
 		}
-		antList.print();
+	}
+
+	private double[][][] removeRowCopy(double[][][] previous, int position)
+	{
+		double[][][] result = new double[previous.length][previous[0].length - 1][previous[0][0].length];
+		for(int patient = 0; patient < previous.length; patient++) {
+			for(int marker = 0; marker < previous[0].length; marker++) {
+				if(marker != position) {
+					int destination = marker < position ? marker : marker - 1;
+					System.arraycopy(previous[patient][marker], 0, result[patient][destination], 0,
+						previous[patient][marker].length);
+				}
+			}
+		}
+		return result;
 	}
 	
 	public int findBest(double[] list)
 	{
 		//return the position of the best value in the set
-		pStreamBackwardElim.println("findBest --  function  --  best to be removed from list of size: "+list.length);
-		pStreamCrossvalid.println("findBest --  function  --  best to be removed from list of size: "+list.length);
-		pStreamCrossvalidDefault.println("findBest --  function  --  best to be removed from list of size: "+list.length);
-		pStreamRandomForest.println("findBest --  function  --  best to be removed from list of size: "+list.length);
 
 		double best = 10000000;
 		int bestPosition = 0;
@@ -177,8 +183,6 @@ public class BioMarkerSelection_Local {
 	public double[][][] removeRow(double[][][] oldRow,  int position, double error)
 	{
 		
-		pStreamBackwardElim.println("removeRow -- function" + "\n\n\nX: " + position);
-		pStreamBackwardElim.println("temp.length: " + oldRow.length+", temp[0].length: " + oldRow[0].length+", temp[0][0].length: " + oldRow[0][0].length + ", idList.length: " + ID.length);
 		double[][][] newRow = new double[oldRow.length][oldRow[0].length - 1][oldRow[0][0].length];
 		int removed =0;
 
@@ -196,7 +200,6 @@ public class BioMarkerSelection_Local {
 			}
 			else
 			{
-				pStreamBackwardElim.println("Index: " + b + " Removing " + ID[b]);
 				removed = b;
 			}
 		}
@@ -210,19 +213,15 @@ public class BioMarkerSelection_Local {
 	public void removeID(int position)
 	{
 		
-		pStreamBackwardElim.println("removeID  -- function");
 		//store new string in shorter, temp id list
 		String[] newList = new String[ID.length - 1];
 		
 		for(int i = 0; i < ID.length; i++)
 		{
-			if(i == position){
-				pStreamBackwardElim.println("Removing " + ID[position] + " from antigen list");
-			}
-			else if (i < position){
+			if (i < position){
 				newList[i] = ID[i];
 			}
-			else{
+			else if (i > position){
 				newList[i - 1] = ID[i];
 			}
 		}
@@ -232,11 +231,7 @@ public class BioMarkerSelection_Local {
 	
 	public double[][][] removeRowKeepLast(double[][][] previous, double position)
 	{
-		pStreamBackwardElim.println("removeRow_keepLast -- function");
-		pStreamCrossvalid.println("removeRow_keepLast -- function");
-		pStreamBackwardElim.println("old data size - previous.length: " + previous.length + ", previous[0].length" + previous[0].length + ", previous[0][0].length: " + previous[0][0].length);
-		pStreamCrossvalid.println("old data size - previous.length: " + previous.length + ", previous[0].length" + previous[0].length + ", previous[0][0].length: " + previous[0][0].length);
-		last = new double[previous[0].length][2];
+		last = new double[previous.length][previous[0][0].length];
 		double[][][] newData = new double[previous.length][previous[0].length - 1][previous[0][0].length];
 		for(int b = 0; b < previous[0].length; b++)
 		{
@@ -259,15 +254,11 @@ public class BioMarkerSelection_Local {
 				System.out.println("removeRow_keepLast function BROKEN....");
 		}
 
-		pStreamBackwardElim.println("new data size - newData.length: " + newData.length + ", newData[0].length" + newData[0].length + ", newData[0][0].length: " + newData[0][0].length);
-		pStreamCrossvalid.println("new data size - newData.length: " + newData.length + ", newData[0].length" + newData[0].length + ", newData[0][0].length: " + newData[0][0].length);
 		return newData;
 	}
 	
 	public double[][][] addRow(double[][][] previous, double[][] row, double position)
 	{
-		pStreamBackwardElim.println("addRow -- function");
-		pStreamBackwardElim.println("old data size - previous.length: " + previous.length + ", previous[0].length" + previous[0].length + ", previous[0][0].length: " + previous[0][0].length);
 
 		double[][][] newData = new double[previous.length][previous[0].length + 1][previous[0][0].length];
 
@@ -290,7 +281,6 @@ public class BioMarkerSelection_Local {
 			}
 		}
 
-		pStreamBackwardElim.println("new data size - newData.length: " + newData.length + ", newData[0].length" + newData[0].length + ", newData[0][0].length: " + newData[0][0].length);
 		return newData;
 	}
 	
@@ -319,37 +309,10 @@ public class BioMarkerSelection_Local {
 	
 	public double crossValidate(double[][] data, int fold)
 	{
-		pStreamCrossvalid.println("crossValidate -- function");
-		//function takes in a data set of type double[][]
-		//function returns the mean error returned by cross validation
-		
-		//B is an arbritrary number of times to make 5 groupings of the patients
-		int B=1;
-		//int B=1;  //testing purposes
-		double meanError = 0;
-		
-		double[] error = new double[B];
-		
-		for(int a = 0; a < B; a++)
-		{
-			
-			error[a] = crossValidDefault(data, fold);
-			pStreamCrossvalid.println("Position: " + a + " Error : " + error[a]); 
-			
-		}
-		//sum up error array
-		for(int x = 0; x < error.length; x++)
-		{
-			meanError += error[x];
-		}
-		//take mean of sum
-		
-		meanError = meanError / error.length;
-		pStreamCrossvalid.println("MeanError: " + meanError);
-		return meanError;
+		return crossValidDefault(data, fold);
 	}
 	
-	public double RandomForest(File trainA)
+	public double RandomForest(File trainA, int testStart, int testStop)
 	{
 		//System.out.println("RandomForestTest  --  function");
 		
@@ -357,61 +320,43 @@ public class BioMarkerSelection_Local {
         try {
 			arff.setSource(trainA);
 		} catch (IOException e) {
-			e.printStackTrace();
+			throw new IllegalStateException("Random forest evaluation failed", e);
 		}
         
         Instances nomi = null;
 		try {
 			nomi = arff.getDataSet();
 		} catch (IOException e) {
-			e.printStackTrace();
+			throw new IllegalStateException("Random forest evaluation failed", e);
 		}
      
-        Instances trainSet = null;
-        Instances testSet = null;
         //System.out.println("Instances: " + nomi.numInstances() + " Attributes: "+nomi.numAttributes());
         nomi.setClassIndex(nomi.numAttributes() - 1);
         NumericToNominal dat = new NumericToNominal();
-        RemovePercentage per = new RemovePercentage();
+        // Keep antigen measurements numeric; only the class label is nominal.
+        dat.setAttributeIndices("last");
         
         try {
 			dat.setInputFormat(nomi);
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new IllegalStateException("Random forest evaluation failed", e);
 		}
         
         try {
 			nomi = NumericToNominal.useFilter(nomi, dat);
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new IllegalStateException("Random forest evaluation failed", e);
 		}
         
-        per = new RemovePercentage();
-        try {
-			per.setInputFormat(nomi);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-        per.setInvertSelection(true);
-        per.setPercentage(80);
-        try {
-			trainSet=per.useFilter(nomi, per);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-        per = new RemovePercentage();
-        try {
-			per.setInputFormat(nomi);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-        
-        per.setPercentage(80);
-        try {
-			testSet=per.useFilter(nomi, per);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+        if (testStart < 0 || testStop > nomi.numInstances() || testStart >= testStop) {
+            throw new IllegalArgumentException("Invalid test fold bounds: " + testStart + ".." + testStop);
+        }
+        Instances trainSet = new Instances(nomi, nomi.numInstances() - (testStop - testStart));
+        Instances testSet = new Instances(nomi, testStop - testStart);
+        for (int i = 0; i < nomi.numInstances(); i++) {
+            if (i >= testStart && i < testStop) testSet.add(nomi.instance(i));
+            else trainSet.add(nomi.instance(i));
+        }
         
         trainSet.classAttribute();
         trainSet.setClassIndex(nomi.numAttributes() - 1);
@@ -425,42 +370,60 @@ public class BioMarkerSelection_Local {
 		try {
 			tree.buildClassifier(trainSet);
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new IllegalStateException("Random forest evaluation failed", e);
 		}
-		
-		double oob = tree.measureOutOfBagError();		
 		
 		Evaluation evaluation1 = null;
 		try {
 			evaluation1 = new Evaluation(trainSet);
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new IllegalStateException("Random forest evaluation failed", e);
 		}
 		try {
 			evaluation1.evaluateModel(tree, testSet);
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new IllegalStateException("Random forest evaluation failed", e);
 		}
-		double error = 0.0;
-		double[][] confusionMatrix = evaluation1.confusionMatrix(); 
-		pStreamRandomForest.println("Confusion Matrix: ");
-		for(int i = 0; i < confusionMatrix.length; i++)
-		{
-			for(int j = 0; j < confusionMatrix[0].length; j++)
-			{
-				pStreamRandomForest.print(confusionMatrix[i][j] + " ");
+		double[][] confusion = evaluation1.confusionMatrix();
+		StringBuilder details = new StringBuilder();
+		details.append("Fold samples [").append(testStart).append(',').append(testStop)
+				.append(") predictions (actual -> predicted):");
+		for (int i = 0; i < testSet.numInstances(); i++) {
+			weka.core.Instance instance = testSet.instance(i);
+			double prediction;
+			try {
+				prediction = tree.classifyInstance(instance);
+			} catch (Exception e) {
+				throw new IllegalStateException("Could not produce fold prediction", e);
 			}
-			pStreamRandomForest.println("\n\n\n\n");
+			details.append(" ").append(testStart + i).append(": ")
+					.append(classValueName(testSet, instance.classValue())).append(" -> ")
+					.append(classValueName(testSet, prediction)).append(';');
 		}
-		error = (confusionMatrix[0][1] + confusionMatrix[1][0]);
-		pStreamRandomForest.println("Number of Errors: " + error);
-				
-		return error;
+		details.append(" confusion matrix (actual rows, predicted columns):");
+		for (double[] row : confusion) {
+			details.append(" [");
+			for (int column = 0; column < row.length; column++) {
+				if (column > 0) details.append(',');
+				details.append(row[column]);
+			}
+			details.append(']');
+		}
+		synchronized (System.out) {
+			System.out.println(details.toString());
+		}
+		return evaluation1.errorRate();
+	}
+
+	private String classValueName(Instances data, double value) {
+		if (Double.isNaN(value)) return "?";
+		int index = (int) value;
+		if (index < 0 || index >= data.classAttribute().numValues()) return Double.toString(value);
+		return data.classAttribute().value(index);
 	}
 	
 	public double[][] createRandomGroups(double[][] data)
 	{
-		pStreamCrossvalid.println("createRandomGroups  --  function");
 		//temporary data storage for new data grouping
 		double[][] temp = new double[data.length][data[0].length];
 		
@@ -477,18 +440,12 @@ public class BioMarkerSelection_Local {
 			}
 		}
 		
-		pStreamCrossvalid.println("temp.length: " + temp.length + "temp[0].length: " + temp[0].length);
-		for(int a = 0; a < temp.length; a++)
-		{
-			pStreamCrossvalid.print(temp[a][0] + ", ");
-		}
 		
 		return temp;
 	}
 	
 	public int[] randomizePatients(int[] patients)
 	{
-		pStreamCrossvalid.println("randomizePatients  --  function");
 		//return a random list for patient ids;
 		int[] left = new int[patients.length];
 		
@@ -513,12 +470,6 @@ public class BioMarkerSelection_Local {
 			}
 			x=0;
 		}
-		pStreamCrossvalid.println("patient order list: ");
-		for(int x = 0; x < newPatients.length; x++)
-		{
-			pStreamCrossvalid.print(newPatients[x] + ", ");
-		}
-		pStreamCrossvalid.println();
 		
 		return newPatients;
 	}
@@ -536,7 +487,6 @@ public class BioMarkerSelection_Local {
 	
 	public double[][] transpose(double[][] data)
 	{
-		pStreamCrossvalidDefault.println("transpose --  function");
 		//creates a temporary double[][], the inverse dimensions of data
 		double[][] temp = new double[data[0].length][data.length];
 		
@@ -546,12 +496,8 @@ public class BioMarkerSelection_Local {
 			for(int y = 0; y < data[0].length; y++)
 			{
 				temp[y][x] = data[x][y];
-				pStreamCrossvalidDefault.print(temp[y][x]);
 			}
-			pStreamCrossvalidDefault.println();
 		}
-		pStreamCrossvalidDefault.println("transpose dimensions: ");
-		pStreamCrossvalidDefault.println("temp.length: " + temp.length + ", temp[0].length: " + temp[0].length);
 		
 		return temp;
 	}
@@ -574,65 +520,62 @@ public class BioMarkerSelection_Local {
 	
 	public double crossValidDefault(double[][] data, int fold)
 	{
-		
-		pStreamCrossvalidDefault.println("crossValidDefault  --  function");
-		pStreamCrossvalidDefault.println("data.length: "+data.length+", data[0].length: "+data[0].length);
+		final double[][] transposed = transpose(data);
+		if (fold < 2 || transposed.length == 0 || transposed[0].length % 2 != 0
+				|| fold > transposed[0].length / 2) {
+			throw new IllegalArgumentException("Fold count must be between 2 and the number of paired samples");
+		}
+		final int pairCount = transposed[0].length / 2;
+		List<Callable<Double>> tasks = new ArrayList<Callable<Double>>();
+		for (int foldIndex = 0; foldIndex < fold; foldIndex++) {
+			final int currentFold = foldIndex;
+			final int start = 2 * (currentFold * pairCount / fold);
+			final int stop = 2 * ((currentFold + 1) * pairCount / fold);
+			final long fileIndex = count.incrementAndGet();
+			tasks.add(new Callable<Double>() {
+				public Double call() {
+					try {
+						prepCSV(start, stop, transposed, fold, fileIndex);
+						return RandomForest(createNewArff(new File("data_temp" + fileIndex + ".csv"), fileIndex), start, stop);
+					} catch (Exception e) {
+						throw new IllegalStateException("Cross-validation fold " + fileIndex + " failed", e);
+					} finally {
+						TemporaryDataFiles.cleanupFold(fileIndex);
+					}
+				}
+			});
+		}
+
 		double errorRate = 0;
-		double[] error = new double[fold];
-		
-		double[][] trans_data = transpose(data);
-		int start, stop, interval=(data.length / fold);
-		for(int x = 0; x < fold; x++) 
-		{ 
-			count++;
-			start = x * interval; 
-			
-			stop = start + interval; 
-			//System.out.println("start "+start+" stop "+ stop + "Intervale: " +interval);
-			if(x != fold - 1)  
-				prepCSV(start, stop, trans_data, fold,count); 
-			else 
-				prepCSV(start, data.length - 1, trans_data, fold,count); 
-
-			try 
-			{ 
-			
-				error[x] = RandomForest(createNewArff(new File("data_temp" + count + ".csv"), x, fold));
-			
-			} 
-			catch (Exception e) 
-			{ 
-				System.err.println(e); 
-			} 
-
-		} 
-		
-		//sum error returned from random forest 
-		for(int y = 0; y < fold; y++) 
-		{ 
-			errorRate += error[y]; 
-			
-		} 
-		pStreamCrossvalidDefault.println("Total Error: " + (errorRate / (data.length / 2)));
-		//get mean error 
-		//delete(fold);
-		
-		return (errorRate / (data.length / 2));
+		try {
+			for (Future<Double> result : FOLD_EXECUTOR.invokeAll(tasks)) errorRate += result.get();
+		} catch (InterruptedException e) {
+			Thread.currentThread().interrupt();
+			throw new IllegalStateException("Cross-validation was interrupted", e);
+		} catch (ExecutionException e) {
+			throw new IllegalStateException("CSV or cross-validation operation failed", e.getCause());
+		}
+		return errorRate / fold;
 	}
 	
-	public File createNewArff(File Data, int i,int fold) throws IOException
+	public File createNewArff(File Data, long fileIndex) throws IOException
 	{
 		
 		CSVLoader loader = new CSVLoader();
-		loader.setSource(Data);
+		
 		//File ror = new File("data.arff");
 		
 		
-        Instances data = loader.getDataSet(); 
+        Instances data;
+        // Own the stream so parse failures also release the Windows file handle.
+        try (FileInputStream input = new FileInputStream(Data)) {
+            loader.setSource(input);
+            data = loader.getDataSet();
+        } 
        
         ArffSaver saver = new ArffSaver();
         
-        String fileName = "data" + count + ".arff";
+		String fileName = "data" + fileIndex + ".arff";
         
         try
         {
@@ -645,7 +588,7 @@ public class BioMarkerSelection_Local {
         catch(Exception e)
         {
         	//System.out.println("error: " + e + "\n");
-        	//e.printStackTrace();
+        	throw new IOException("Unable to save ARFF file " + fileName, e);
         }
        
     	File trainA =new File(fileName);
@@ -682,64 +625,34 @@ public class BioMarkerSelection_Local {
 	
 	public void prepCSV(int start, int stop, double[][] data, int fold, long index)
 	{
-		//System.out.println("prepCSV  --  function");
-		//System.out.println("data.length: "+data.length+", data[0].length: "+data[0].length);
-		int size = data.length;
-		int size2 = data[0].length;
-		
-		FileOutputStream out; // declare a file output object 
-		PrintStream p; // declare a print stream object 
-		try { // Create a new file output stream 
-			out = new FileOutputStream("data_temp" + index + ".csv"); // Connect print stream to the output stream 
-			p = new PrintStream(out);
-			
-			//create header for temp data file
-			for(int z = 0; z < size; z++)
-			{
-					if(z == size - 1)
-					{
-						p.print(z);
-					}
-					else
-					{
-						p.print(z + ",");
-					}
-			}
-			p.println(",CLASS");
-			
-			for(int x = 0; x < size2; x++) 
-			{ 
-			p.print(data[0][x]); 
-			for(int y = 0; y < data.length - 1; y++) 
-			{ 
-			//print data matrix delimited by commas 
-				p.print(','); 
-				p.print(data[y + 1][x]);  
-			} 
-			if(x >= start && x <= stop) 
-			{ 
-				if(x%2 == 0) 
-					p.println(",1"); 
-				else 
-					p.println(",2"); 
-			} 
-			else 
-			{ 
-				if(x%2 == 0) 
-					p.println(",1"); 
-				else 
-					p.println(",2"); 
-			} 
+		if (data == null || data.length == 0 || data[0] == null) {
+			throw new IllegalArgumentException("Cannot write an empty evaluation matrix");
 		}
-			//close printout
-			p.close();
-		} 
-		//catch all exceptions
-		catch (Exception e) 
-		{ 
-			System.err.println ("Error writing to file");
-			System.err.println(e);
-		}		
+		final int featureCount = data.length;
+		final int sampleCount = data[0].length;
+		for (int feature = 0; feature < featureCount; feature++) {
+			if (data[feature] == null || data[feature].length != sampleCount) {
+				throw new IllegalArgumentException("Evaluation matrix is not rectangular at feature " + feature);
+			}
+		}
+		try (PrintStream csv = new PrintStream(new FileOutputStream("data_temp" + index + ".csv"))) {
+			for (int feature = 0; feature < featureCount; feature++) {
+				if (feature > 0) csv.print(',');
+				csv.print(feature);
+			}
+			csv.println(",CLASS");
+
+			for (int sample = 0; sample < sampleCount; sample++) {
+				for (int feature = 0; feature < featureCount; feature++) {
+					if (feature > 0) csv.print(',');
+					csv.print(Double.toString(data[feature][sample]));
+				}
+				csv.println(sample % 2 == 0 ? ",1" : ",2");
+			}
+			if (csv.checkError()) throw new IOException("CSV output failed for fold " + index);
+		} catch (IOException e) {
+			throw new IllegalStateException("Unable to write CSV for cross-validation fold " + index, e);
+		}
 	}
 	
 	//Paired T-Test type of selection (simplest comparison of data)

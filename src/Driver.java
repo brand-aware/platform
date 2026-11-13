@@ -7,11 +7,13 @@ public class Driver {
 	 * Written for Brigham and Women's Hospital
 	 */
 	public static void main(String[] args) { 
+		TemporaryDataFiles.cleanupLeftovers();
 		
 		// Main function calls for bio-marker analysis program (BioCode) 
 		//DataHandler cy3 = new DataHandler(40, 562);  
 		//DataHandler cy5 = new DataHandler(40, 562);  
 		Swing frame = new Swing(); 
+		frame.createPage();
 		//Functions function = new Functions(); 
 		
 		//cy3.readCSVSheet("C:/OliverNewPatients3_24Cy3.csv");  

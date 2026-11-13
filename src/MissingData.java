@@ -22,13 +22,15 @@ public class MissingData {
 		{
 			handle1=d1;
 			handle2=d2;
+		}
+		
+		public void run() {
 			data1=handle1.getData();
 			data2=handle2.getData();
 			
 			//Create data to be passed to BPCA functionality
 			createDatafile();
 		}
-		public MissingData(){}
 		
 		//Output into working directory a new output.txt file
 		public void createDatafile()

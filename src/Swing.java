@@ -12,6 +12,8 @@ import javax.swing.JFrame;
 
 public class Swing extends JFrame implements ActionListener
 {	
+
+	private static final long serialVersionUID = -2311258094131159075L;
 	boolean missingVal=false;
 	JButton openFile1, openFile2, openText1, openText2, missingValue, Submit, BackwardsElimination;
 	JTextField patients, biomarkers, csv1_display, csv2_display, txt1_display, txt2_display;
@@ -29,7 +31,11 @@ public class Swing extends JFrame implements ActionListener
 	
 	private Image logo;
 	
-	Swing()
+	Swing(){
+		
+	}
+	
+	public void createPage()
 	{
 		missingVal=false;
 		//load settings saved from previous run of the program
@@ -109,7 +115,7 @@ public class Swing extends JFrame implements ActionListener
 		content.add(openText2);
 		openText2.addActionListener(this);
 		
-		missing = new JLabel("Would you like to replace missing values (BPCA)");
+		missing = new JLabel("Replace missing values (JBPCA + nonnegative KNN fallback)");
 		missing.setBounds(25, 530, 295, 70);
 		content.add(missing);
 		missingValue = new JButton("Replace");
@@ -202,7 +208,9 @@ public class Swing extends JFrame implements ActionListener
 					Save(p,b,fileNamecy3,fileNamecy5,fileTextcy3,fileTextcy5);
 					
 					MissingData MD = new MissingData(cy3, cy5);
+					MD.run();
 					RunCommand cmd = new RunCommand();
+					cmd.go();
 					
 					missingVal=true;
 				}
@@ -233,7 +241,7 @@ public class Swing extends JFrame implements ActionListener
 			{
 				int p=0, b=0;
 				p=Integer.parseInt(patients.getText());
-				p=p*2;
+				//p=p*2;
 				b=Integer.parseInt(biomarkers.getText());
 				cy3 = new DataHandler(p, b);
 				cy5 = new DataHandler(p, b);
@@ -258,6 +266,7 @@ public class Swing extends JFrame implements ActionListener
 	{
 		setVisible(false);
 		Swing2 clusterSize = new Swing2(normalized_data, idList);
+		clusterSize.run();
 	}
 	public void loadImage()
 	{

@@ -1,0 +1,11 @@
+Runtime: Windows 11 Java 25.0.4
+Worker listening on 127.0.0.1:59208 (TCP BWP1, Windows 11)
+Thread[#38,name,5,main]
+---Registering Weka Editors---
+Trying to add database driver (JDBC): RmiJdbc.RJDriver - Error, not in CLASSPATH?
+Trying to add database driver (JDBC): jdbc.idbDriver - Error, not in CLASSPATH?
+Trying to add database driver (JDBC): org.gjt.mm.mysql.Driver - Error, not in CLASSPATH?
+Trying to add database driver (JDBC): com.mckoi.JDBCDriver - Error, not in CLASSPATH?
+Trying to add database driver (JDBC): org.hsqldb.jdbcDriver - Error, not in CLASSPATH?
+PASS: real worker handshake, repeated Weka evaluation/parity, malformed and truncated request recovery
+PASS: rows over UDP size limit, job-ID validation, nonfinite response rejection, deadline
